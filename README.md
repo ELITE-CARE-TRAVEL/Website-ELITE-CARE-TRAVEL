@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/client/src/assets/logo.png" alt="Elite Care Travel" width="180"/>
+  <img src="/client/src/assets/mm.png" alt="Elite Care Travel" width="180"/>
 </p>
 
 <h1 align="center">🌍 ELITE CARE TRAVEL</h1>
