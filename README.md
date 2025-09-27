@@ -54,14 +54,14 @@ On departure day, we accompany you to the airport and remain available even afte
    ```bash
    git clone https://github.com/ELITE-CARE-TRAVEL/Website-ELITE-CARE-TRAVEL.git
 
-2. Install dependencies:
-cd client
-npm install 
+2. **Install dependencies**
+- cd client
+- npm install 
 
-3. Run frontend:
-npm run dev
+3. **Run frontend**
+- npm run dev
 
-4. Run backend:
-cd server
-npm install
-npm run dev
+4. **Run backend**
+- cd server
+- npm install
+- npm run dev
