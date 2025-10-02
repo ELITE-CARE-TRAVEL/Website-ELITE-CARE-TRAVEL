@@ -18,11 +18,37 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    alert('Votre message a été envoyé avec succès!');
+    console.log('Form submitted with data:', formData);
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+      console.log('Sending request to:', `${apiUrl}/api/contact`);
+      
+      const res = await fetch(`${apiUrl}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      
+      console.log('Response status:', res.status);
+      console.log('Response ok:', res.ok);
+      
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        console.error('Error response:', data);
+        throw new Error(data.error || 'Une erreur est survenue');
+      }
+      
+      const result = await res.json();
+      console.log('Success response:', result);
+      
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      alert('Votre message a été envoyé avec succès!');
+    } catch (err: any) {
+      console.error('Submit error:', err);
+      alert(err.message || 'Erreur lors de l\'envoi du message');
+    }
   };
 
   return (
@@ -31,10 +57,10 @@ export default function Contact() {
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-[#05125d] to-[#0a1f7a] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6" style={{ fontFamily: "'Cinzel Decorative', serif" }}>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
             Contactez Elite Care Travel
           </h1>
-          <p className="text-xl md:text-2xl text-[#cfb654] font-medium">
+          <p className="text-xl md:text-2xl text-[#cfb654] font-semibold">
             Votre partenaire en tourisme médical en Tunisie
           </p>
         </div>
@@ -42,14 +68,14 @@ export default function Contact() {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-12">
           {/* Left Side - Information */}
           <div className="space-y-8">
-            <div className="bg-white rounded-2xl shadow-xl p-8">
-              <h2 className="text-3xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Cinzel Decorative', serif" }}>
+            <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-transparent hover:border-[#cfb654] transition duration-300">
+              <h2 className="text-3xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                 Pourquoi nous choisir ?
               </h2>
-              <div className="space-y-6 text-gray-700 leading-relaxed">
+              <div className="space-y-6 text-[#05125d] leading-relaxed">
                 <p className="text-lg">
                   Vous souhaitez en savoir plus sur une intervention de chirurgie esthétique, une opération cardio-vasculaire ou tout autre acte médical en Tunisie ?
                 </p>
@@ -66,8 +92,8 @@ export default function Contact() {
             </div>
 
             {/* Contact Information */}
-            <div className="bg-white rounded-2xl shadow-xl p-8">
-              <h3 className="text-2xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Cinzel Decorative', serif" }}>
+            <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-transparent hover:border-[#cfb654] transition duration-300">
+              <h3 className="text-2xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                 Informations de Contact
               </h3>
               <div className="space-y-4">
@@ -78,8 +104,8 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">Téléphone</p>
-                    <p className="text-gray-600">+216 XX XXX XXX</p>
+                    <p className="font-semibold text-[#05125d]">Téléphone</p>
+                    <p className="text-[#cfb654] font-medium">+216 XX XXX XXX</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -89,8 +115,8 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">Email</p>
-                    <p className="text-gray-600">contact@elitecaretravel.com</p>
+                    <p className="font-semibold text-[#05125d]">Email</p>
+                    <p className="text-[#cfb654] font-medium">contact@elitecaretravel.com</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -101,8 +127,8 @@ export default function Contact() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">Adresse</p>
-                    <p className="text-gray-600">Tunis, Tunisie</p>
+                    <p className="font-semibold text-[#05125d]">Adresse</p>
+                    <p className="text-[#cfb654] font-medium">Tunis, Tunisie</p>
                   </div>
                 </div>
               </div>
@@ -110,14 +136,14 @@ export default function Contact() {
           </div>
 
           {/* Right Side - Contact Form */}
-          <div className="bg-white rounded-2xl shadow-xl p-8">
-            <h2 className="text-3xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Cinzel Decorative', serif" }}>
+          <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-transparent hover:border-[#cfb654] transition duration-300">
+            <h2 className="text-3xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
               Formulaire de Contact
             </h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-[#05125d] mb-2">
                     Nom complet *
                   </label>
                   <input
@@ -127,7 +153,7 @@ export default function Contact() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#05125d] focus:border-transparent transition duration-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] transition duration-200"
                     placeholder="Votre nom complet"
                   />
                 </div>
@@ -142,7 +168,7 @@ export default function Contact() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#05125d] focus:border-transparent transition duration-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] transition duration-200"
                     placeholder="votre@email.com"
                   />
                 </div>
@@ -158,7 +184,7 @@ export default function Contact() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#05125d] focus:border-transparent transition duration-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] transition duration-200"
                     placeholder="+216 XX XXX XXX"
                   />
                 </div>
@@ -172,7 +198,7 @@ export default function Contact() {
                     required
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#05125d] focus:border-transparent transition duration-200"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] transition duration-200"
                   >
                     <option value="">Sélectionnez un sujet</option>
                     <option value="chirurgie-esthetique">Chirurgie Esthétique</option>
@@ -202,7 +228,7 @@ export default function Contact() {
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-[#05125d] to-[#0a1f7a] text-white py-4 px-6 rounded-lg font-semibold text-lg hover:from-[#040e4a] hover:to-[#05125d] transition duration-200 transform hover:scale-105 shadow-lg"
+                className="w-full bg-gradient-to-r from-[#cfb654] to-[#b8a047] text-[#05125d] py-4 px-6 rounded-lg font-bold text-lg hover:from-[#b8a047] hover:to-[#a68f3f] hover:text-white transition duration-200 transform hover:scale-105 shadow-xl"
               >
                 Envoyer le Message
               </button>
