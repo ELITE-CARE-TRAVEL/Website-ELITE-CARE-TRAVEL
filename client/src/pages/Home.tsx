@@ -2,6 +2,12 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import esthetiqueImg from "../assets/Home/CHIRURGIE ESTHÉTIQUE.png";
+import obesiteImg from "../assets/Home/CHIRURGIE DE L'OBÉSITÉ.png";
+import cardioImg from "../assets/Home/CHIRURGIE CARDIO VASCULAIRE.png";
+import orthoImg from "../assets/Home/CHIRURGIE ORTHOPÉDIQUE.png";
+import neuroImg from "../assets/Home/NEUROCHIRURGIE.png";
+import infertImg from "../assets/Home/TRAITEMENT DE L'INFERTILITÉ.png";
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -158,66 +164,30 @@ export default function Home() {
               NOS INTERVENTIONS
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-              <div className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
-                <div className="w-16 h-16 bg-gradient-to-br from-pink-400 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">
-                  CHIRURGIE ESTHÉTIQUE
-                </h3>
-              </div>
-              <div className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
-                <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">
-                  CHIRURGIE DE L'OBÉSITÉ
-                </h3>
-              </div>
-              <div className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
-                <div className="w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">
-                  CHIRURGIE CARDIO VASCULAIRE
-                </h3>
-              </div>
-              <div className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">
-                  CHIRURGIE ORTHOPÉDIQUE
-                </h3>
-              </div>
-              <div className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                  </svg>
-                </div>
-                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">
-                  NEUROCHIRURGIE
-                </h3>
-              </div>
-              <div className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">
-                  TRAITEMENT DE L'INFERTILITÉ
-                </h3>
-              </div>
+              <Link to="/interventions/chirurgie-esthetique" className="group bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
+                <img src={esthetiqueImg} alt="Chirurgie Esthétique" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
+                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">CHIRURGIE ESTHÉTIQUE</h3>
+              </Link>
+              <Link to="/interventions/chirurgie-obesite" className="group bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
+                <img src={obesiteImg} alt="Chirurgie de l'obésité" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
+                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">CHIRURGIE DE L'OBÉSITÉ</h3>
+              </Link>
+              <Link to="/interventions/chirurgie-cardio-vasculaire" className="group bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
+                <img src={cardioImg} alt="Chirurgie Cardio Vasculaire" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
+                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">CHIRURGIE CARDIO VASCULAIRE</h3>
+              </Link>
+              <Link to="/interventions/chirurgie-orthopedique" className="group bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
+                <img src={orthoImg} alt="Chirurgie Orthopédique" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
+                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">CHIRURGIE ORTHOPÉDIQUE</h3>
+              </Link>
+              <Link to="/interventions/neurochirurgie" className="group bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
+                <img src={neuroImg} alt="Neurochirurgie" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
+                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">NEUROCHIRURGIE</h3>
+              </Link>
+              <Link to="/interventions/traitement-infertilite" className="group bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
+                <img src={infertImg} alt="Traitement de l'infertilité" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
+                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">TRAITEMENT DE L'INFERTILITÉ</h3>
+              </Link>
             </div>
           </div>
         </div>
@@ -236,7 +206,7 @@ export default function Home() {
                 />
               </div>
               <h3 className="text-lg font-semibold text-[#05125d] mb-2">SÉJOUR</h3>
-              <p className="text-sm text-[#cfb654] hover:text-[#b8a047] cursor-pointer transition duration-200">Voir plus</p>
+              
             </div>
             <div className="text-center">
               <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
@@ -247,7 +217,7 @@ export default function Home() {
                 />
               </div>
               <h3 className="text-lg font-semibold text-[#05125d] mb-2">HÔTELS</h3>
-              <p className="text-sm text-[#cfb654] hover:text-[#b8a047] cursor-pointer transition duration-200">Voir plus</p>
+              
             </div>
             <div className="text-center">
               <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
@@ -258,7 +228,7 @@ export default function Home() {
                 />
               </div>
               <h3 className="text-lg font-semibold text-[#05125d] mb-2">CLINIQUES</h3>
-              <p className="text-sm text-[#cfb654] hover:text-[#b8a047] cursor-pointer transition duration-200">Voir plus</p>
+              
             </div>
             <div className="text-center">
               <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
@@ -268,7 +238,7 @@ export default function Home() {
                 />
               </div>
               <h3 className="text-lg font-semibold text-[#05125d] mb-2">CHIRURGIENS</h3>
-              <p className="text-sm text-[#cfb654] hover:text-[#b8a047] cursor-pointer transition duration-200">Voir plus</p>
+              
             </div>
           </div>
         </div>

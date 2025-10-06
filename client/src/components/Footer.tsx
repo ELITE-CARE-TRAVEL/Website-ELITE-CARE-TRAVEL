@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import logo from "../assets/xx.png";
 
 export default function Footer() {
   return (
@@ -9,7 +10,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <img src="./src/assets/xx.png" className="h-12 w-auto" alt="Logo" style={{ backgroundColor: 'transparent' }} />
+              <img src={logo} className="h-12 w-auto" alt="Logo" style={{ backgroundColor: 'transparent' }} />
               <span className="text-2xl font-semibold" style={{ fontFamily: "'Cinzel Decorative', serif", color: '#cfb654' }}>
                 Elite Care Travel
               </span>
@@ -56,19 +57,19 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-white hover:text-[#cfb654] transition duration-200 flex items-center font-medium">
+                <Link to="/guide/notre-demarche" className="text-white hover:text-[#cfb654] transition duration-200 flex items-center font-medium">
                   <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  À Propos
+                  Guide
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-white hover:text-[#cfb654] transition duration-200 flex items-center font-medium">
+                <Link to="/pricing" className="text-white hover:text-[#cfb654] transition duration-200 flex items-center font-medium">
                   <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                   </svg>
-                  Services
+                  Tarifs
                 </Link>
               </li>
               <li>

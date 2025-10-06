@@ -1,24 +1,17 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import logo from "../assets/xx.png";
 
 export default function Navbar() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [isInterventionsOpen, setIsInterventionsOpen] = useState(false);
   const [isGuideOpen, setIsGuideOpen] = useState(false);
-  const [expandedCategories, setExpandedCategories] = useState<{ [key: string]: boolean }>({});
-
-  const toggleCategory = (categoryKey: string) => {
-    setExpandedCategories(prev => ({
-      ...prev,
-      [categoryKey]: !prev[categoryKey]
-    }));
-  };
+  const [isInterventionsOpen, setIsInterventionsOpen] = useState(false);
 
   return (
 <nav className="border-gray-200 shadow-lg relative z-50" style={{ backgroundColor: '#05125d' }}>
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
   <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse group">
-      <img src="./src/assets/xx.png" className="h-16 w-auto transition-transform duration-200 group-hover:scale-105" alt="Logo" style={{ backgroundColor: 'transparent' }} />
+      <img src={logo} className="h-16 w-auto transition-transform duration-200 group-hover:scale-105" alt="Logo" style={{ backgroundColor: 'transparent' }} />
       <span className="self-center text-2xl font-semibold whitespace-nowrap transition-colors duration-200 group-hover:text-yellow-300" style={{ fontFamily: "'Cinzel Decorative', serif", color: '#cfb654' }}>Elite Care Travel</span>
   </a>
   <div className="flex items-center md:order-2 space-x-4">
@@ -126,7 +119,8 @@ export default function Navbar() {
       </li>
       <li className="relative">
         <button
-          onClick={() => setIsInterventionsOpen(!isInterventionsOpen)}
+          type="button"
+          onClick={() => setIsInterventionsOpen(v => !v)}
           className="block py-3 px-4 md:p-3 text-white rounded-lg bg-gradient-to-r from-[#05125d]/10 to-[#0a1f7a]/10 hover:bg-gradient-to-r hover:from-[#cfb654] hover:to-[#b8a047] hover:text-white md:bg-gradient-to-r md:from-[#05125d]/5 md:to-[#0a1f7a]/5 md:text-white md:hover:bg-gradient-to-r md:hover:from-[#cfb654] md:hover:to-[#b8a047] transition-all duration-300 font-semibold shadow-sm hover:shadow-md w-full text-left"
         >
           <span className="flex items-center justify-between gap-2">
@@ -142,190 +136,71 @@ export default function Navbar() {
           </span>
         </button>
         
-        {/* Multi-level Dropdown */}
+        {/* Simple Dropdown with 6 Categories */}
         {isInterventionsOpen && (
-          <div className="absolute left-0 top-full mt-2 w-96 bg-white rounded-lg shadow-2xl border border-[#cfb654] z-[9999] md:left-0">
-
-            <div className="p-4 space-y-1">
-              {/* Chirurgie Esthétique */}
-              <div className="group">
-                <button
-                  onClick={() => toggleCategory('esthetique')}
-                  className="flex items-center justify-between w-full p-2 text-[#05125d] font-semibold hover:bg-[#cfb654]/10 rounded-lg cursor-pointer"
-                >
-                  <span className="flex items-center gap-2">
-                    <svg className="w-4 h-4 text-[#cfb654]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div 
+            className="absolute left-0 top-full mt-2 w-80 bg-white rounded-lg shadow-2xl border border-[#cfb654] z-[9999] md:left-0"
+          >
+          <div className="p-4 space-y-2">
+            <Link to="/interventions/chirurgie-esthetique" onClick={() => setIsInterventionsOpen(false)} className="flex items-center gap-3 p-3 text-[#05125d] font-semibold hover:bg-[#cfb654]/10 rounded-lg transition-colors duration-200">
+              <svg className="w-5 h-5 text-[#cfb654]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                     </svg>
-                    Chirurgie Esthétique
-                  </span>
-                  <svg className={`w-4 h-4 transition-transform duration-200 ${expandedCategories['esthetique'] ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-                {expandedCategories['esthetique'] && (
-                  <div className="ml-4 space-y-1 mt-2">
-                    {/* Chirurgie Visage */}
-                    <button
-                      onClick={() => toggleCategory('visage')}
-                      className="flex items-center justify-between w-full p-2 text-sm text-gray-700 hover:bg-[#cfb654]/10 rounded cursor-pointer"
-                    >
-                      <span>Chirurgie Visage</span>
-                      <svg className={`w-3 h-3 transition-transform duration-200 ${expandedCategories['visage'] ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                    {expandedCategories['visage'] && (
-                      <div className="ml-4 space-y-1">
-                        <Link to="/interventions/lifting-cervico-facial" className="block p-2 text-xs text-gray-600 hover:bg-[#cfb654]/10 rounded">Lifting cervico facial</Link>
-                        <Link to="/interventions/rhinoplastie" className="block p-2 text-xs text-gray-600 hover:bg-[#cfb654]/10 rounded">Rhinoplastie</Link>
-                        <Link to="/interventions/blepharoplastie" className="block p-2 text-xs text-gray-600 hover:bg-[#cfb654]/10 rounded">Blépharoplastie</Link>
-                      </div>
-                    )}
-                    
-                    {/* Chirurgie Seins */}
-                    <button
-                      onClick={() => toggleCategory('seins')}
-                      className="flex items-center justify-between w-full p-2 text-sm text-gray-700 hover:bg-[#cfb654]/10 rounded cursor-pointer"
-                    >
-                      <span>Chirurgie Seins</span>
-                      <svg className={`w-3 h-3 transition-transform duration-200 ${expandedCategories['seins'] ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                    {expandedCategories['seins'] && (
-                      <div className="ml-4 space-y-1">
-                        <Link to="/interventions/augmentation-mammaire" className="block p-2 text-xs text-gray-600 hover:bg-[#cfb654]/10 rounded">L'augmentation mammaire</Link>
-                        <Link to="/interventions/lifting-seins" className="block p-2 text-xs text-gray-600 hover:bg-[#cfb654]/10 rounded">Lifting des seins</Link>
-                        <Link to="/interventions/reduction-mammaire" className="block p-2 text-xs text-gray-600 hover:bg-[#cfb654]/10 rounded">Réduction mammaire</Link>
-                      </div>
-                    )}
-                    
-                    {/* Chirurgie Silhouette */}
-                    <button
-                      onClick={() => toggleCategory('silhouette')}
-                      className="flex items-center justify-between w-full p-2 text-sm text-gray-700 hover:bg-[#cfb654]/10 rounded cursor-pointer"
-                    >
-                      <span>Chirurgie Silhouette</span>
-                      <svg className={`w-3 h-3 transition-transform duration-200 ${expandedCategories['silhouette'] ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                    {expandedCategories['silhouette'] && (
-                      <div className="ml-4 space-y-1">
-                        <Link to="/interventions/abdominoplastie" className="block p-2 text-xs text-gray-600 hover:bg-[#cfb654]/10 rounded">Abdominoplastie</Link>
-                        <Link to="/interventions/augmentation-fesses" className="block p-2 text-xs text-gray-600 hover:bg-[#cfb654]/10 rounded">Augmentation des fesses</Link>
-                        <Link to="/interventions/liposuccion" className="block p-2 text-xs text-gray-600 hover:bg-[#cfb654]/10 rounded">Liposuccion</Link>
-                        <Link to="/interventions/lifting-cuisses" className="block p-2 text-xs text-gray-600 hover:bg-[#cfb654]/10 rounded">Lifting des cuisses</Link>
-                        <Link to="/interventions/gynecomastie" className="block p-2 text-xs text-gray-600 hover:bg-[#cfb654]/10 rounded">Gynécomastie</Link>
-                      </div>
-                    )}
-                  </div>
-                )}
+              <div>
+                <div className="font-semibold">Chirurgie Esthétique</div>
+                <div className="text-sm text-gray-600">Chirurgie plastique et esthétique</div>
               </div>
-
-              {/* Chirurgie de l'obésité */}
-              <button
-                onClick={() => toggleCategory('obesite')}
-                className="flex items-center justify-between w-full p-2 text-[#05125d] font-semibold hover:bg-[#cfb654]/10 rounded-lg cursor-pointer"
-              >
-                <span className="flex items-center gap-2">
-                  <svg className="w-4 h-4 text-[#cfb654]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            </Link>
+            
+            <Link to="/interventions/chirurgie-obesite" onClick={() => setIsInterventionsOpen(false)} className="flex items-center gap-3 p-3 text-[#05125d] font-semibold hover:bg-[#cfb654]/10 rounded-lg transition-colors duration-200">
+              <svg className="w-5 h-5 text-[#cfb654]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
-                  Chirurgie de l'obésité
-                </span>
-                <svg className={`w-4 h-4 transition-transform duration-200 ${expandedCategories['obesite'] ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-              {expandedCategories['obesite'] && (
-                <div className="ml-4 space-y-1">
-                  <Link to="/interventions/anneau-gastrique" className="block p-2 text-sm text-gray-700 hover:bg-[#cfb654]/10 rounded">Anneau Gastrique</Link>
-                  <Link to="/interventions/sleeve" className="block p-2 text-sm text-gray-700 hover:bg-[#cfb654]/10 rounded">Sleeve</Link>
-                  <Link to="/interventions/bypass" className="block p-2 text-sm text-gray-700 hover:bg-[#cfb654]/10 rounded">Bypass</Link>
+              <div>
+                <div className="font-semibold">Chirurgie de l'obésité</div>
+                <div className="text-sm text-gray-600">Traitement chirurgical de l'obésité</div>
                 </div>
-              )}
-
-              {/* Chirurgie Cardio Vasculaire */}
-              <button
-                onClick={() => toggleCategory('cardio')}
-                className="flex items-center justify-between w-full p-2 text-[#05125d] font-semibold hover:bg-[#cfb654]/10 rounded-lg cursor-pointer"
-              >
-                <span className="flex items-center gap-2">
-                  <svg className="w-4 h-4 text-[#cfb654]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            </Link>
+            
+            <Link to="/interventions/chirurgie-cardio-vasculaire" onClick={() => setIsInterventionsOpen(false)} className="flex items-center gap-3 p-3 text-[#05125d] font-semibold hover:bg-[#cfb654]/10 rounded-lg transition-colors duration-200">
+              <svg className="w-5 h-5 text-[#cfb654]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
-                  Chirurgie Cardio Vasculaire
-                </span>
-                <svg className={`w-4 h-4 transition-transform duration-200 ${expandedCategories['cardio'] ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-              {expandedCategories['cardio'] && (
-                <div className="ml-4 space-y-1">
-                  <Link to="/interventions/valves-cardiaques" className="block p-2 text-sm text-gray-700 hover:bg-[#cfb654]/10 rounded">Chirurgie des Valves Cardiaques</Link>
-                  <Link to="/interventions/minimale-invasive" className="block p-2 text-sm text-gray-700 hover:bg-[#cfb654]/10 rounded">Chirurgie Minimale Invasive</Link>
-                  <Link to="/interventions/chirurgie-aorte" className="block p-2 text-sm text-gray-700 hover:bg-[#cfb654]/10 rounded">Chirurgie de l'aorte</Link>
-                  <Link to="/interventions/chirurgie-coronaire" className="block p-2 text-sm text-gray-700 hover:bg-[#cfb654]/10 rounded">Chirurgie Coronaire</Link>
+              <div>
+                <div className="font-semibold">Chirurgie Cardio Vasculaire</div>
+                <div className="text-sm text-gray-600">Chirurgie du cœur et des vaisseaux</div>
                 </div>
-              )}
-
-              {/* Chirurgie Orthopédique */}
-              <button
-                onClick={() => toggleCategory('orthopedique')}
-                className="flex items-center justify-between w-full p-2 text-[#05125d] font-semibold hover:bg-[#cfb654]/10 rounded-lg cursor-pointer"
-              >
-                <span className="flex items-center gap-2">
-                  <svg className="w-4 h-4 text-[#cfb654]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            </Link>
+            
+            <Link to="/interventions/chirurgie-orthopedique" onClick={() => setIsInterventionsOpen(false)} className="flex items-center gap-3 p-3 text-[#05125d] font-semibold hover:bg-[#cfb654]/10 rounded-lg transition-colors duration-200">
+              <svg className="w-5 h-5 text-[#cfb654]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  Chirurgie Orthopédique
-                </span>
-                <svg className={`w-4 h-4 transition-transform duration-200 ${expandedCategories['orthopedique'] ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-              {expandedCategories['orthopedique'] && (
-                <div className="ml-4 space-y-1">
-                  <Link to="/interventions/prothese-genou" className="block p-2 text-sm text-gray-700 hover:bg-[#cfb654]/10 rounded">Prothèse Genou</Link>
-                  <Link to="/interventions/prothese-hanche" className="block p-2 text-sm text-gray-700 hover:bg-[#cfb654]/10 rounded">Prothèse Hanche</Link>
-                  <Link to="/interventions/hallux-valgus" className="block p-2 text-sm text-gray-700 hover:bg-[#cfb654]/10 rounded">Hallux Valgus</Link>
-                  <Link to="/interventions/canal-carpien" className="block p-2 text-sm text-gray-700 hover:bg-[#cfb654]/10 rounded">Syndrome du Canal Carpien</Link>
-                  <Link to="/interventions/hernie-discale" className="block p-2 text-sm text-gray-700 hover:bg-[#cfb654]/10 rounded">Hernie Discale</Link>
+              <div>
+                <div className="font-semibold">Chirurgie Orthopédique</div>
+                <div className="text-sm text-gray-600">Chirurgie des os et articulations</div>
                 </div>
-              )}
+            </Link>
 
-              {/* Neurochirurgie */}
-              <Link to="/interventions/neurochirurgie" className="flex items-center gap-2 p-2 text-[#05125d] font-semibold hover:bg-[#cfb654]/10 rounded-lg">
-                <svg className="w-4 h-4 text-[#cfb654]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <Link to="/interventions/neurochirurgie" onClick={() => setIsInterventionsOpen(false)} className="flex items-center gap-3 p-3 text-[#05125d] font-semibold hover:bg-[#cfb654]/10 rounded-lg transition-colors duration-200">
+              <svg className="w-5 h-5 text-[#cfb654]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                 </svg>
-                Neurochirurgie
+              <div>
+                <div className="font-semibold">Neurochirurgie</div>
+                <div className="text-sm text-gray-600">Chirurgie du système nerveux</div>
+              </div>
               </Link>
 
-              {/* Traitement de l'infertilité */}
-              <button
-                onClick={() => toggleCategory('infertilite')}
-                className="flex items-center justify-between w-full p-2 text-[#05125d] font-semibold hover:bg-[#cfb654]/10 rounded-lg cursor-pointer"
-              >
-                <span className="flex items-center gap-2">
-                  <svg className="w-4 h-4 text-[#cfb654]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <Link to="/interventions/traitement-infertilite" onClick={() => setIsInterventionsOpen(false)} className="flex items-center gap-3 p-3 text-[#05125d] font-semibold hover:bg-[#cfb654]/10 rounded-lg transition-colors duration-200">
+              <svg className="w-5 h-5 text-[#cfb654]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
-                  Traitement de l'infertilité
-                </span>
-                <svg className={`w-4 h-4 transition-transform duration-200 ${expandedCategories['infertilite'] ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
-              {expandedCategories['infertilite'] && (
-                <div className="ml-4 space-y-1">
-                  <Link to="/interventions/insemination-artificielle" className="block p-2 text-sm text-gray-700 hover:bg-[#cfb654]/10 rounded">Insémination Artificielle</Link>
-                  <Link to="/interventions/fiv" className="block p-2 text-sm text-gray-700 hover:bg-[#cfb654]/10 rounded">Fécondation In Vitro</Link>
-                  <Link to="/interventions/biopsie-testiculaire" className="block p-2 text-sm text-gray-700 hover:bg-[#cfb654]/10 rounded">Biopsie Testiculaire</Link>
+              <div>
+                <div className="font-semibold">Traitement de l'infertilité</div>
+                <div className="text-sm text-gray-600">Solutions pour l'infertilité</div>
                 </div>
-              )}
+            </Link>
             </div>
           </div>
         )}
