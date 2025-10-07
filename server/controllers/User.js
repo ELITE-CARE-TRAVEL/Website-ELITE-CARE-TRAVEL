@@ -19,3 +19,13 @@ exports.createContact = async (req, res) => {
     return res.status(500).json({ error: 'Internal server error' });
   }
 };
+
+exports.getAllUsers = async (req, res) => {
+  try {
+    const users = await db.User.findAll({ order: [['createdAt', 'DESC']] });
+    return res.json(users);
+  } catch (error) {
+    console.error('getAllUsers error:', error);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+};

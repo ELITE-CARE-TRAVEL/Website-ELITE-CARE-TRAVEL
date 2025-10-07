@@ -18,5 +18,7 @@ db.sequelize = sequelize;
 
 // Import models
 db.User = require('../models/User')(sequelize, DataTypes);
+db.Admin = require('../models/Admin')(sequelize, DataTypes);
+db.Event = require('../models/Event')(sequelize, DataTypes);
 
 module.exports = db

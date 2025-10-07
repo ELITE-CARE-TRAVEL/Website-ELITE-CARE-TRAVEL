@@ -3,6 +3,9 @@ const cors = require('cors');
 require('dotenv').config();
 const db = require('./database/connection');
 const userRoutes = require('./routes/User');
+const adminRoutes = require('./routes/Admin');
+const eventRoutes = require('./routes/Event');
+const adminProfileRoutes = require('./routes/AdminProfile');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -17,11 +20,23 @@ app.get('/api/health', (req, res) => {
 
 // Use routes
 app.use('/api', userRoutes);
+app.use('/api', adminRoutes);
+app.use('/api', eventRoutes);
+app.use('/api', adminProfileRoutes);
 
 async function start() {
   try {
     await db.sequelize.authenticate();
-    await db.sequelize.sync();
+    console.log('Database connection established successfully.');
+    
+    // Sync database and create tables
+    await db.sequelize.sync({ force: false });
+    console.log('Database synchronized successfully.');
+    
+    // Initialize admin after sync
+    const { initializeAdmin } = require('./controllers/Admin');
+    await initializeAdmin();
+    
     app.listen(port, '0.0.0.0', () => {
       console.log(`Server running on port ${port}`);
     });
