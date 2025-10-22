@@ -24,16 +24,22 @@ exports.login = async (req, res) => {
     try {
         const { username, password } = req.body;
         
+        console.log('Login attempt with username:', username);
+        
         if (!username || !password) {
             return res.status(400).json({ error: 'Username and password are required' });
         }
 
         const admin = await db.Admin.findOne({ where: { username } });
         if (!admin) {
+            console.log('Admin not found for username:', username);
             return res.status(401).json({ error: 'Invalid credentials' });
         }
 
+        console.log('Admin found, checking password...');
         const isPasswordValid = await admin.checkPassword(password);
+        console.log('Password valid:', isPasswordValid);
+        
         if (!isPasswordValid) {
             return res.status(401).json({ error: 'Invalid credentials' });
         }

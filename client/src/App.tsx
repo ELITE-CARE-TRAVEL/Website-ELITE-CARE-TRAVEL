@@ -7,10 +7,10 @@ import NosServices from "./pages/NosServices";
 import NosPartenaires from "./pages/NosPartenaires";
 import ChirurgieEsthetique from "./pages/ChirurgieEsthetique";
 import ChirurgieObesite from "./pages/ChirurgieObesite";
-import ChirurgieCardioVasculaire from "./pages/ChirurgieCardioVasculaire";
 import ChirurgieOrthopedique from "./pages/ChirurgieOrthopedique";
-import Neurochirurgie from "./pages/Neurochirurgie";
-import TraitementInfertilite from "./pages/TraitementInfertilite";
+import PiedDiabetique from "./pages/PiedDiabetique";
+import Ophthalmologie from "./pages/Ophthalmologie";
+import Gynecologie from "./pages/Gynecologie";
 import NotFound from "./pages/NotFound";
 
 function App() {
@@ -21,10 +21,10 @@ function App() {
       <Route path="/pricing" element={<Prices />} />
       <Route path="/interventions/chirurgie-esthetique" element={<ChirurgieEsthetique />} />
       <Route path="/interventions/chirurgie-obesite" element={<ChirurgieObesite />} />
-      <Route path="/interventions/chirurgie-cardio-vasculaire" element={<ChirurgieCardioVasculaire />} />
       <Route path="/interventions/chirurgie-orthopedique" element={<ChirurgieOrthopedique />} />
-      <Route path="/interventions/neurochirurgie" element={<Neurochirurgie />} />
-      <Route path="/interventions/traitement-infertilite" element={<TraitementInfertilite />} />
+      <Route path="/interventions/pied-diabetique" element={<PiedDiabetique />} />
+      <Route path="/interventions/ophthalmologie" element={<Ophthalmologie />} />
+      <Route path="/interventions/gynecologie" element={<Gynecologie />} />
       <Route path="/guide/notre-demarche" element={<NotreDemarche />} />
       <Route path="/guide/nos-services" element={<NosServices />} />
       <Route path="/guide/nos-partenaires" element={<NosPartenaires />} />

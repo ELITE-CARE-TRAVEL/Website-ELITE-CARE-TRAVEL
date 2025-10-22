@@ -22,17 +22,6 @@ export default function NotreDemarche() {
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Image Section */}
-            <div className="order-2 lg:order-1">
-              <div className="relative">
-                <img 
-                  src="https://plus.unsplash.com/premium_photo-1658506671316-0b293df7c72b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZG9jdG9yfGVufDB8fDB8fHww" 
-                  alt="Notre démarche médicale" 
-                  className="w-full h-96 object-cover rounded-lg shadow-xl"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#05125d]/20 to-transparent rounded-lg"></div>
-              </div>
-            </div>
 
             {/* Content Section */}
             <div className="order-1 lg:order-2">

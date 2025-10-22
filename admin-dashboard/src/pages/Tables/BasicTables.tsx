@@ -8,10 +8,17 @@ interface ContactUser {
   name: string;
   email: string;
   phone?: string;
-  subject: string;
+  country: string;
   message: string;
   createdAt: string;
 }
+
+const countryFlags: Record<string, string> = {
+  'Tunisia': '🇹🇳',
+  'Libya': '🇱🇾',
+  'Algeria': '🇩🇿',
+  'Canada': '🇨🇦'
+};
 
 export default function BasicTables() {
   const [users, setUsers] = useState<ContactUser[]>([]);
@@ -58,20 +65,25 @@ export default function BasicTables() {
                     <th className="p-3">Name</th>
                     <th className="p-3">Email</th>
                     <th className="p-3">Phone</th>
-                    <th className="p-3">Subject</th>
+                    <th className="p-3">Country</th>
                     <th className="p-3">Message</th>
                     <th className="p-3">Created</th>
                   </tr>
                 </thead>
                 <tbody>
                   {users.map((u) => (
-                    <tr key={u.id} className="border-b">
-                      <td className="p-3">{u.name}</td>
+                    <tr key={u.id} className="border-b hover:bg-gray-50">
+                      <td className="p-3 font-medium">{u.name}</td>
                       <td className="p-3">{u.email}</td>
                       <td className="p-3">{u.phone || '-'}</td>
-                      <td className="p-3">{u.subject}</td>
+                      <td className="p-3">
+                        <span className="inline-flex items-center gap-2">
+                          <span className="text-lg">{countryFlags[u.country] || '🌍'}</span>
+                          <span className="font-medium">{u.country}</span>
+                        </span>
+                      </td>
                       <td className="p-3 max-w-xs truncate" title={u.message}>{u.message}</td>
-                      <td className="p-3">{new Date(u.createdAt).toLocaleString()}</td>
+                      <td className="p-3 text-sm text-gray-600">{new Date(u.createdAt).toLocaleString()}</td>
                     </tr>
                   ))}
                   {users.length === 0 && (

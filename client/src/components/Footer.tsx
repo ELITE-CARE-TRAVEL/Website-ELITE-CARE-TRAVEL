@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
               <img src={logo} className="h-12 w-auto" alt="Logo" style={{ backgroundColor: 'transparent' }} />
-              <span className="text-2xl font-semibold" style={{ fontFamily: "'Cinzel Decorative', serif", color: '#cfb654' }}>
+              <span className="text-2xl font-semibold" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, color: '#cfb654' }}>
                 Elite Care Travel
               </span>
             </div>
@@ -44,7 +44,7 @@ export default function Footer() {
 
           {/* Quick Links */}
         <div>
-            <h3 className="text-xl font-semibold mb-6" style={{ fontFamily: "'Cinzel Decorative', serif", color: '#cfb654' }}>
+            <h3 className="text-xl font-semibold mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, color: '#cfb654' }}>
               Liens Rapides
             </h3>
             <ul className="space-y-3">
@@ -85,7 +85,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-semibold mb-6" style={{ fontFamily: "'Cinzel Decorative', serif", color: '#cfb654' }}>
+            <h3 className="text-xl font-semibold mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, color: '#cfb654' }}>
               Contact
             </h3>
             <div className="space-y-4">
@@ -96,7 +96,7 @@ export default function Footer() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-[#cfb654] font-medium">+216 XX XXX XXX</p>
+                  <p className="text-[#cfb654] font-medium">+216 24 591 519</p>
                 </div>
               </div>
               <div className="flex items-start space-x-3">

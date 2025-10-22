@@ -7,9 +7,18 @@ export default function Contact() {
     name: '',
     email: '',
     phone: '',
-    subject: '',
+    country: '',
     message: ''
   });
+
+  const countries = [
+    { name: 'Tunisia', code: '+216', flag: '🇹🇳' },
+    { name: 'Libya', code: '+218', flag: '🇱🇾' },
+    { name: 'Algeria', code: '+213', flag: '🇩🇿' },
+    { name: 'Canada', code: '+1', flag: '🇨🇦' }
+  ];
+
+  const selectedCountry = countries.find(c => c.name === formData.country);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -43,7 +52,7 @@ export default function Contact() {
       const result = await res.json();
       console.log('Success response:', result);
       
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      setFormData({ name: '', email: '', phone: '', country: '', message: '' });
       alert('Votre message a été envoyé avec succès!');
     } catch (err: any) {
       console.error('Submit error:', err);
@@ -65,178 +74,116 @@ export default function Contact() {
           </p>
         </div>
       </div>
-
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid lg:grid-cols-2 gap-12">
-          {/* Left Side - Information */}
-          <div className="space-y-8">
-            <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-transparent hover:border-[#cfb654] transition duration-300">
-              <h2 className="text-3xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                Pourquoi nous choisir ?
-              </h2>
-              <div className="space-y-6 text-[#05125d] leading-relaxed">
-                <p className="text-lg">
-                  Vous souhaitez en savoir plus sur une intervention de chirurgie esthétique, une opération cardio-vasculaire ou tout autre acte médical en Tunisie ?
-                </p>
-                <p className="text-lg">
-                  Vous aimeriez connaître nos formules de paiement ou les services d'hébergement que nous proposons ?
-                </p>
-                <p className="text-lg">
-                  Nos tarifs vous intéressent et vous envisagez de bénéficier de notre accompagnement ?
-                </p>
-                <p className="text-lg">
-                  Remplissez simplement le formulaire ci-dessous pour nous adresser vos questions. Notre équipe, spécialisée dans le tourisme médical et la chirurgie esthétique en Tunisie, se fera un plaisir de vous répondre rapidement et de vous fournir toutes les informations nécessaires.
-                </p>
+      {/* Contact Form - centered and elevated */}
+      <div className="max-w-3xl md:max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 md:-mt-16">
+        <div className="bg-white rounded-2xl md:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-10 border border-gray-100 ring-1 ring-black/5 hover:ring-[#cfb654]/20 transition-colors duration-300">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#05125d] mb-8 tracking-tight" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+            Formulaire de Contact
+          </h2>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-semibold text-[#05125d] mb-2">
+                  Nom complet *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3.5 border border-gray-200 bg-gray-50 rounded-xl shadow-sm focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] hover:border-gray-300 transition-colors duration-200 placeholder-gray-400"
+                  placeholder="Votre nom complet"
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-semibold text-[#05125d] mb-2">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3.5 border border-gray-200 bg-gray-50 rounded-xl shadow-sm focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] hover:border-gray-300 transition-colors duration-200 placeholder-gray-400"
+                  placeholder="votre@email.com"
+                />
               </div>
             </div>
-
-            {/* Contact Information */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-transparent hover:border-[#cfb654] transition duration-300">
-              <h3 className="text-2xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                Informations de Contact
-              </h3>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-[#05125d] rounded-full flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-[#05125d]">Téléphone</p>
-                    <p className="text-[#cfb654] font-medium">+216 XX XXX XXX</p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-[#05125d] rounded-full flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-[#05125d]">Email</p>
-                    <p className="text-[#cfb654] font-medium">contact@elitecaretravel.com</p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-[#05125d] rounded-full flex items-center justify-center">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-[#05125d]">Adresse</p>
-                    <p className="text-[#cfb654] font-medium">Tunis, Tunisie</p>
-                  </div>
-                </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="country" className="block text-sm font-semibold text-[#05125d] mb-2">
+                  Pays *
+                </label>
+                <select
+                  id="country"
+                  name="country"
+                  required
+                  value={formData.country}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3.5 border border-gray-200 bg-gray-50 rounded-xl shadow-sm focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] hover:border-gray-300 transition-colors duration-200 font-medium"
+                >
+                  <option value="">Sélectionnez votre pays</option>
+                  {countries.map((country) => (
+                    <option key={country.name} value={country.name}>
+                      {country.flag} {country.name} ({country.code})
+                    </option>
+                  ))}
+                </select>
               </div>
-            </div>
-          </div>
-
-          {/* Right Side - Contact Form */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-transparent hover:border-[#cfb654] transition duration-300">
-            <h2 className="text-3xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-              Formulaire de Contact
-            </h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-[#05125d] mb-2">
-                    Nom complet *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] transition duration-200"
-                    placeholder="Votre nom complet"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] transition duration-200"
-                    placeholder="votre@email.com"
-                  />
-                </div>
-              </div>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                    Téléphone
-                  </label>
+              <div>
+                <label htmlFor="phone" className="block text-sm font-semibold text-[#05125d] mb-2">
+                  Téléphone
+                </label>
+                <div className="relative">
+                  {selectedCountry && (
+                    <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2 pointer-events-none">
+                      <span className="text-lg">{selectedCountry.flag}</span>
+                      <span className="text-sm font-semibold text-[#05125d]">{selectedCountry.code}</span>
+                      <span className="text-gray-300">|</span>
+                    </div>
+                  )}
                   <input
                     type="tel"
                     id="phone"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] transition duration-200"
-                    placeholder="+216 XX XXX XXX"
+                    className={`w-full ${selectedCountry ? 'pl-28' : 'pl-4'} pr-4 py-3.5 border border-gray-200 bg-gray-50 rounded-xl shadow-sm focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] hover:border-gray-300 transition-all duration-200 placeholder-gray-400`}
+                    placeholder={selectedCountry ? "XX XXX XXX" : "Sélectionnez d'abord un pays"}
+                    disabled={!selectedCountry}
                   />
                 </div>
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                    Sujet *
-                  </label>
-                  <select
-                    id="subject"
-                    name="subject"
-                    required
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] transition duration-200"
-                  >
-                    <option value="">Sélectionnez un sujet</option>
-                    <option value="chirurgie-esthetique">Chirurgie Esthétique</option>
-                    <option value="chirurgie-cardiovasculaire">Chirurgie Cardio-vasculaire</option>
-                    <option value="hebergement">Services d'Hébergement</option>
-                    <option value="paiement">Formules de Paiement</option>
-                    <option value="tarifs">Tarifs</option>
-                    <option value="accompagnement">Accompagnement</option>
-                    <option value="autre">Autre</option>
-                  </select>
-                </div>
               </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Message *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={6}
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#05125d] focus:border-transparent transition duration-200 resize-none"
-                  placeholder="Décrivez votre demande en détail..."
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-[#cfb654] to-[#b8a047] text-[#05125d] py-4 px-6 rounded-lg font-bold text-lg hover:from-[#b8a047] hover:to-[#a68f3f] hover:text-white transition duration-200 transform hover:scale-105 shadow-xl"
-              >
-                Envoyer le Message
-              </button>
-            </form>
-          </div>
+            </div>
+            <div>
+              <label htmlFor="message" className="block text-sm font-semibold text-[#05125d] mb-2">
+                Message *
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                rows={6}
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full px-4 py-3.5 h-40 border border-gray-200 bg-gray-50 rounded-xl shadow-sm focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] hover:border-gray-300 transition-colors duration-200 resize-y placeholder-gray-400"
+                placeholder="Décrivez votre demande en détail..."
+              />
+            </div>
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-[#cfb654] to-[#b8a047] text-[#05125d] py-4 px-6 rounded-xl font-extrabold text-lg hover:from-[#b8a047] hover:to-[#a68f3f] hover:text-white transition-transform duration-200 active:scale-95 shadow-xl ring-1 ring-[#cfb654]/20"
+            >
+              Envoyer le Message
+            </button>
+          </form>
         </div>
       </div>
       <Footer />
-    </div>
+      </div>
   );
 }

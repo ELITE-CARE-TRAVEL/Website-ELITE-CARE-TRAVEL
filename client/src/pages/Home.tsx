@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import esthetiqueImg from "../assets/Home/CHIRURGIE ESTHÉTIQUE.png";
+import esthetiqueImg from "../assets/Home/CHIRURGIE ESTHÉTIQUE.jpeg";
 import obesiteImg from "../assets/Home/CHIRURGIE DE L'OBÉSITÉ.png";
-import cardioImg from "../assets/Home/CHIRURGIE CARDIO VASCULAIRE.png";
-import orthoImg from "../assets/Home/CHIRURGIE ORTHOPÉDIQUE.png";
-import neuroImg from "../assets/Home/NEUROCHIRURGIE.png";
-import infertImg from "../assets/Home/TRAITEMENT DE L'INFERTILITÉ.png";
+import cardioImg from "../assets/Home/CHIRURGIE CARDIO VASCULAIRE.jpeg";
+import orthoImg from "../assets/Home/CHIRURGIE ORTHOPÉDIQUE.jpeg";
+import neuroImg from "../assets/Home/NEUROCHIRURGIE.jpeg";
+import infertImg from "../assets/Home/TRAITEMENT DE L'INFERTILITÉ.jpeg";
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -120,38 +120,78 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Medical Tourism Agency Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Doctor Image */}
-            <div className="order-2 lg:order-1">
-              <img 
-                src="https://plus.unsplash.com/premium_photo-1658506671316-0b293df7c72b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZG9jdG9yfGVufDB8fDB8fHww" 
-                alt="Doctor" 
-                className="w-full h-96 object-cover rounded-lg shadow-xl"
-              />
-            </div>
-            {/* Content */}
-            <div className="order-1 lg:order-2">
-              <h1 className="text-3xl md:text-4xl font-bold text-[#05125d] mb-4 text-center lg:text-left" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                AGENCE DE TOURISME MÉDICAL POUR LA CHIRURGIE ESTHÉTIQUE
-              </h1>
-              <h2 className="text-2xl md:text-3xl font-semibold text-[#cfb654] mb-6 text-center lg:text-left" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                Elite Care Travel
-              </h2>
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Elite Care Travel est une agence spécialisée dans le tourisme médical en Tunisie, offrant une prise en charge complète pour votre séjour de soins. Nous organisons des interventions de chirurgie esthétique (plastique, réparatrice, anti-âge, traitement de l'obésité) ainsi que des chirurgies spécialisées : cardio-vasculaire, orthopédique, neurochirurgie et traitements de l'infertilité. Nous collaborons avec les meilleurs chirurgiens tunisiens, réputés pour leur expertise et leur savoir-faire, afin de garantir des soins de haute qualité dans les cliniques les plus renommées.
-              </p>
-              <div className="flex justify-center lg:justify-start">
-                <Link
-                  to="/contact"
-                  className="inline-block bg-gradient-to-r from-[#cfb654] to-[#b8a047] text-[#05125d] font-bold py-3 px-6 rounded-lg hover:from-[#b8a047] hover:to-[#a68f3f] hover:text-white transition duration-200 transform hover:scale-105 shadow-lg"
-                >
-                  Demandez votre devis gratuit
-                </Link>
+      {/* Qui sommes-nous Section */}
+      <section className="py-20 bg-gradient-to-br from-white via-blue-50 to-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#05125d] mb-4" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+              Qui sommes-nous ?
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#cfb654] to-[#b8a047] mx-auto rounded-full"></div>
+          </div>
+
+          {/* Main Content */}
+          <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 mb-8">
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              Bienvenue chez <span className="font-bold text-[#05125d]">Elite Care Travel</span>, votre partenaire de confiance en tourisme médical en Tunisie.
+              Nous mettons à votre service l'excellence de la médecine tunisienne alliée à un accompagnement VIP pour faire de votre séjour santé une expérience sereine, sûre et réussie.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              Spécialisés dans la <span className="font-semibold text-[#05125d]">chirurgie esthétique</span>, la <span className="font-semibold text-[#05125d]">chirurgie de l'obésité</span>, l'<span className="font-semibold text-[#05125d]">orthopédie et la traumatologie</span>, le <span className="font-semibold text-[#05125d]">pied diabétique</span>, l'<span className="font-semibold text-[#05125d]">ophtalmologie</span> et la <span className="font-semibold text-[#05125d]">gynécologie</span>, nous travaillons exclusivement avec des médecins hautement qualifiés, reconnus pour leur compétence et leur professionnalisme.
+            </p>
+
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              Notre équipe prend en charge chaque patient de A à Z : accueil à l'aéroport, transfert, hospitalisation, hébergement, suivi post-opératoire et accompagnement personnalisé à chaque étape.
+              <span className="block mt-2 font-semibold text-[#cfb654] text-xl">Votre santé et votre bien-être sont notre priorité absolue.</span>
+            </p>
+          </div>
+
+          {/* Leadership Team */}
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Dr Yasmine Gharsa */}
+            <div className="bg-gradient-to-br from-[#05125d] to-[#0a1f7a] rounded-xl shadow-xl p-8 text-white transform hover:scale-105 transition duration-300">
+              <div className="flex items-center mb-4">
+                <div>
+                  <h3 className="text-2xl font-bold" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                    Dr Yasmine Gharsa
+                  </h3>
+                  <p className="text-[#cfb654] font-semibold">Supervision Médicale</p>
+                </div>
               </div>
+              <p className="text-gray-200 leading-relaxed">
+                Diplômée de la grande Université de Médecine de Rabat et inscrite à l'Ordre des Médecins Tunisiens, chaque protocole est soigneusement étudié pour garantir sécurité, confort et résultats optimaux.
+              </p>
             </div>
+
+            {/* Amina Bsais */}
+            <div className="bg-gradient-to-br from-[#cfb654] to-[#b8a047] rounded-xl shadow-xl p-8 text-[#05125d] transform hover:scale-105 transition duration-300">
+              <div className="flex items-center mb-4">
+                <div>
+                  <h3 className="text-2xl font-bold" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                    Amina Bsais
+                  </h3>
+                  <p className="text-[#05125d] font-semibold">Direction Générale</p>
+                </div>
+              </div>
+              <p className="text-[#05125d] leading-relaxed">
+                Diplômée de la prestigieuse école hôtelière VATEL et titulaire d'un Master en Business Administration (MBA). Grâce à son expertise en gestion et son sens aigu du service, elle veille à offrir une prise en charge haut de gamme, alliant professionnalisme, hospitalité et attention personnalisée.
+              </p>
+            </div>
+          </div>
+
+          {/* Closing Statement */}
+          <div className="text-center mt-12">
+            <p className="text-2xl md:text-3xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+              Chez Elite Care Travel, votre santé mérite l'excellence.
+            </p>
+            <Link
+              to="/contact"
+              className="inline-block bg-gradient-to-r from-[#cfb654] to-[#b8a047] text-[#05125d] font-bold py-4 px-8 rounded-lg text-lg hover:from-[#b8a047] hover:to-[#a68f3f] hover:text-white transition duration-200 transform hover:scale-105 shadow-xl"
+            >
+              Demandez votre devis gratuit
+            </Link>
           </div>
         </div>
       </section>
@@ -172,77 +212,27 @@ export default function Home() {
                 <img src={obesiteImg} alt="Chirurgie de l'obésité" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
                 <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">CHIRURGIE DE L'OBÉSITÉ</h3>
               </Link>
-              <Link to="/interventions/chirurgie-cardio-vasculaire" className="group bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
-                <img src={cardioImg} alt="Chirurgie Cardio Vasculaire" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
-                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">CHIRURGIE CARDIO VASCULAIRE</h3>
-              </Link>
               <Link to="/interventions/chirurgie-orthopedique" className="group bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
-                <img src={orthoImg} alt="Chirurgie Orthopédique" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
+                <img src={cardioImg} alt="Chirurgie Orthopédique" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
                 <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">CHIRURGIE ORTHOPÉDIQUE</h3>
               </Link>
-              <Link to="/interventions/neurochirurgie" className="group bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
-                <img src={neuroImg} alt="Neurochirurgie" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
-                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">NEUROCHIRURGIE</h3>
+              <Link to="/interventions/pied-diabetique" className="group bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
+                <img src={orthoImg} alt="PEC diabète et Pied diabétique" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
+                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">PEC DIABÈTE ET PIED DIABÉTIQUE</h3>
               </Link>
-              <Link to="/interventions/traitement-infertilite" className="group bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
-                <img src={infertImg} alt="Traitement de l'infertilité" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
-                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">TRAITEMENT DE L'INFERTILITÉ</h3>
+              <Link to="/interventions/ophthalmologie" className="group bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
+                <img src={neuroImg} alt="Ophthalmologie" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
+                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">OPHTHALMOLOGIE</h3>
+              </Link>
+              <Link to="/interventions/gynecologie" className="group bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
+                <img src={infertImg} alt="Gynécologie" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
+                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">GYNÉCOLOGIE</h3>
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1512678080530-7760d81faba6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fFNUQVklMjBvZiUyMGhvc3BpdGFsfGVufDB8fDB8fHww" 
-                  alt="Séjour"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-lg font-semibold text-[#05125d] mb-2">SÉJOUR</h3>
-              
-            </div>
-            <div className="text-center">
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
-                <img 
-                  src="https://plus.unsplash.com/premium_photo-1676321688630-9558e7d2be10?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8SCVDMyU5NFRFTFN8ZW58MHx8MHx8fDA%3D" 
-                  alt="Hôtels"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-lg font-semibold text-[#05125d] mb-2">HÔTELS</h3>
-              
-            </div>
-            <div className="text-center">
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1711343777918-6d395c16e37f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-                  alt="Cliniques"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-lg font-semibold text-[#05125d] mb-2">CLINIQUES</h3>
-              
-            </div>
-            <div className="text-center">
-              <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
-                <img 
-                  src="https://plus.unsplash.com/premium_photo-1661440014677-40c571298653?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDU4fHx8ZW58MHx8fHx8"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-lg font-semibold text-[#05125d] mb-2">CHIRURGIENS</h3>
-              
-            </div>
-          </div>
-        </div>
-      </section>
       
 
       {/* Elite Care Travel Benefits Section */}
