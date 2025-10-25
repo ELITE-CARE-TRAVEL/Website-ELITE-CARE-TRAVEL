@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import AutoTranslate from "../components/AutoTranslate";
 
 export default function Prices() {
   const faceSurgery = [
@@ -90,9 +91,9 @@ export default function Prices() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={icon} />
           </svg>
         </div>
-        <h3 className="text-2xl font-bold text-[#05125d]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800 }}>
+        <AutoTranslate as="h3" className="text-2xl font-bold text-[#05125d]" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800 }}>
           {title}
-        </h3>
+        </AutoTranslate>
       </div>
       <div className="grid md:grid-cols-2 gap-4">
         {procedures.map((procedure, index) => (
@@ -112,12 +113,12 @@ export default function Prices() {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-r from-[#05125d] to-[#0a1f7a] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800 }}>
+          <AutoTranslate as="h1" className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800 }}>
             Tarifs
-          </h1>
-          <p className="text-xl md:text-2xl text-[#cfb654] max-w-4xl mx-auto leading-relaxed">
+          </AutoTranslate>
+          <AutoTranslate as="p" className="text-xl md:text-2xl text-[#cfb654] max-w-4xl mx-auto leading-relaxed">
             Chirurgie esthétique : Prix transparents incluant l'opération et l'hébergement
-          </p>
+          </AutoTranslate>
         </div>
       </section>
 
@@ -125,16 +126,16 @@ export default function Prices() {
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800 }}>
+            <AutoTranslate as="h2" className="text-3xl md:text-4xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800 }}>
               Chirurgie Esthétique
-            </h2>
+            </AutoTranslate>
             <div className="bg-gradient-to-r from-[#cfb654]/10 to-[#b8a047]/10 p-8 rounded-lg border-l-4 border-[#cfb654]">
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">
+              <AutoTranslate as="p" className="text-lg text-gray-700 leading-relaxed mb-4">
                 Chez Elite Care Travel, les prix affichés pour nos interventions de chirurgie esthétique incluent à la fois l'opération et l'hébergement. Ils sont fournis à titre indicatif et peuvent varier selon vos besoins spécifiques.
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
+              </AutoTranslate>
+              <AutoTranslate as="p" className="text-lg text-gray-700 leading-relaxed">
                 Pour un devis précis et sur-mesure, contactez notre équipe dès aujourd'hui et préparez votre séjour esthétique en Tunisie en toute sérénité.
-              </p>
+              </AutoTranslate>
             </div>
           </div>
         </div>
@@ -184,22 +185,22 @@ export default function Prices() {
       {/* Quote Request Section */}
       <section className="py-20 bg-gradient-to-r from-[#05125d] to-[#0a1f7a] text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800 }}>
+          <AutoTranslate as="h2" className="text-3xl md:text-4xl font-bold mb-8" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800 }}>
             Comment Demander Votre Devis ?
-          </h2>
+          </AutoTranslate>
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 mb-8">
-            <p className="text-lg leading-relaxed mb-6">
+            <AutoTranslate as="p" className="text-lg leading-relaxed mb-6">
               Maintenant que vous connaissez nos tarifs, vous pouvez facilement demander votre devis personnalisé pour votre chirurgie esthétique.
-            </p>
-            <p className="text-lg leading-relaxed">
+            </AutoTranslate>
+            <AutoTranslate as="p" className="text-lg leading-relaxed">
               Ce devis détaillé vous permettra de connaître l'intégralité des frais de l'intervention et d'obtenir une confirmation écrite que tout est inclus dans le prix affiché, pour une transparence et une sérénité totales.
-            </p>
+            </AutoTranslate>
           </div>
           <a
             href="/contact"
             className="inline-block bg-gradient-to-r from-[#cfb654] to-[#b8a047] text-[#05125d] font-bold py-4 px-8 rounded-lg text-lg hover:from-[#b8a047] hover:to-[#a68f3f] hover:text-white transition duration-200 transform hover:scale-105 shadow-xl"
           >
-            Demandez votre devis gratuit
+            <AutoTranslate>Demandez votre devis gratuit</AutoTranslate>
           </a>
         </div>
       </section>

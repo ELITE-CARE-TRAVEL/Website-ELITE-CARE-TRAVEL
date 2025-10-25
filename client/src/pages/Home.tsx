@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import AutoTranslate from "../components/AutoTranslate";
 import esthetiqueImg from "../assets/Home/CHIRURGIE ESTHÉTIQUE.jpeg";
 import obesiteImg from "../assets/Home/CHIRURGIE DE L'OBÉSITÉ.png";
 import cardioImg from "../assets/Home/CHIRURGIE CARDIO VASCULAIRE.jpeg";
@@ -75,12 +76,19 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-black/10"></div>
                 <div className="relative z-10 h-full flex items-center justify-center">
                   <div className="text-center text-white max-w-4xl mx-auto px-4">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800 }}>
+                    <AutoTranslate 
+                      as="h2" 
+                      className="text-3xl md:text-5xl font-bold mb-6 text-white" 
+                      style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800 }}
+                    >
                       {slide.title}
-                    </h2>
-                    <p className="text-xl md:text-2xl text-[#cfb654] max-w-2xl mx-auto leading-relaxed font-medium">
+                    </AutoTranslate>
+                    <AutoTranslate 
+                      as="p" 
+                      className="text-xl md:text-2xl text-[#cfb654] max-w-2xl mx-auto leading-relaxed font-medium"
+                    >
                       {slide.description}
-                    </p>
+                    </AutoTranslate>
                   </div>
                 </div>
               </div>
@@ -125,27 +133,31 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-[#05125d] mb-4" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+            <AutoTranslate 
+              as="h2" 
+              className="text-4xl md:text-5xl font-bold text-[#05125d] mb-4" 
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
               Qui sommes-nous ?
-            </h2>
+            </AutoTranslate>
             <div className="w-24 h-1 bg-gradient-to-r from-[#cfb654] to-[#b8a047] mx-auto rounded-full"></div>
           </div>
 
           {/* Main Content */}
           <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 mb-8">
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            <AutoTranslate as="p" className="text-lg text-gray-700 leading-relaxed mb-6">
               Bienvenue chez <span className="font-bold text-[#05125d]">Elite Care Travel</span>, votre partenaire de confiance en tourisme médical en Tunisie.
               Nous mettons à votre service l'excellence de la médecine tunisienne alliée à un accompagnement VIP pour faire de votre séjour santé une expérience sereine, sûre et réussie.
-            </p>
+            </AutoTranslate>
 
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            <AutoTranslate as="p" className="text-lg text-gray-700 leading-relaxed mb-6">
               Spécialisés dans la <span className="font-semibold text-[#05125d]">chirurgie esthétique</span>, la <span className="font-semibold text-[#05125d]">chirurgie de l'obésité</span>, l'<span className="font-semibold text-[#05125d]">orthopédie et la traumatologie</span>, le <span className="font-semibold text-[#05125d]">pied diabétique</span>, l'<span className="font-semibold text-[#05125d]">ophtalmologie</span> et la <span className="font-semibold text-[#05125d]">gynécologie</span>, nous travaillons exclusivement avec des médecins hautement qualifiés, reconnus pour leur compétence et leur professionnalisme.
-            </p>
+            </AutoTranslate>
 
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            <AutoTranslate as="p" className="text-lg text-gray-700 leading-relaxed mb-6">
               Notre équipe prend en charge chaque patient de A à Z : accueil à l'aéroport, transfert, hospitalisation, hébergement, suivi post-opératoire et accompagnement personnalisé à chaque étape.
               <span className="block mt-2 font-semibold text-[#cfb654] text-xl">Votre santé et votre bien-être sont notre priorité absolue.</span>
-            </p>
+            </AutoTranslate>
           </div>
 
           {/* Leadership Team */}
@@ -157,12 +169,12 @@ export default function Home() {
                   <h3 className="text-2xl font-bold" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                     Dr Yasmine Gharsa
                   </h3>
-                  <p className="text-[#cfb654] font-semibold">Supervision Médicale</p>
+                  <AutoTranslate as="p" className="text-[#cfb654] font-semibold">Supervision Médicale</AutoTranslate>
                 </div>
               </div>
-              <p className="text-gray-200 leading-relaxed">
+              <AutoTranslate as="p" className="text-gray-200 leading-relaxed">
                 Diplômée de la grande Université de Médecine de Rabat et inscrite à l'Ordre des Médecins Tunisiens, chaque protocole est soigneusement étudié pour garantir sécurité, confort et résultats optimaux.
-              </p>
+              </AutoTranslate>
             </div>
 
             {/* Amina Bsais */}
@@ -172,25 +184,25 @@ export default function Home() {
                   <h3 className="text-2xl font-bold" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                     Amina Bsais
                   </h3>
-                  <p className="text-[#05125d] font-semibold">Direction Générale</p>
+                  <AutoTranslate as="p" className="text-[#05125d] font-semibold">Direction Générale</AutoTranslate>
                 </div>
               </div>
-              <p className="text-[#05125d] leading-relaxed">
+              <AutoTranslate as="p" className="text-[#05125d] leading-relaxed">
                 Diplômée de la prestigieuse école hôtelière VATEL et titulaire d'un Master en Business Administration (MBA). Grâce à son expertise en gestion et son sens aigu du service, elle veille à offrir une prise en charge haut de gamme, alliant professionnalisme, hospitalité et attention personnalisée.
-              </p>
+              </AutoTranslate>
             </div>
           </div>
 
           {/* Closing Statement */}
           <div className="text-center mt-12">
-            <p className="text-2xl md:text-3xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+            <AutoTranslate as="p" className="text-2xl md:text-3xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
               Chez Elite Care Travel, votre santé mérite l'excellence.
-            </p>
+            </AutoTranslate>
             <Link
               to="/contact"
               className="inline-block bg-gradient-to-r from-[#cfb654] to-[#b8a047] text-[#05125d] font-bold py-4 px-8 rounded-lg text-lg hover:from-[#b8a047] hover:to-[#a68f3f] hover:text-white transition duration-200 transform hover:scale-105 shadow-xl"
             >
-              Demandez votre devis gratuit
+              <AutoTranslate>Demandez votre devis gratuit</AutoTranslate>
             </Link>
           </div>
         </div>
@@ -200,33 +212,33 @@ export default function Home() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#05125d] mb-8" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+            <AutoTranslate as="h2" className="text-3xl md:text-4xl font-bold text-[#05125d] mb-8" style={{ fontFamily: "'Montserrat', sans-serif" }}>
               NOS INTERVENTIONS
-            </h2>
+            </AutoTranslate>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               <Link to="/interventions/chirurgie-esthetique" className="group bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
                 <img src={esthetiqueImg} alt="Chirurgie Esthétique" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
-                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">CHIRURGIE ESTHÉTIQUE</h3>
+                <AutoTranslate as="h3" className="text-sm font-semibold text-[#05125d] text-center leading-tight">CHIRURGIE ESTHÉTIQUE</AutoTranslate>
               </Link>
               <Link to="/interventions/chirurgie-obesite" className="group bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
                 <img src={obesiteImg} alt="Chirurgie de l'obésité" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
-                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">CHIRURGIE DE L'OBÉSITÉ</h3>
+                <AutoTranslate as="h3" className="text-sm font-semibold text-[#05125d] text-center leading-tight">CHIRURGIE DE L'OBÉSITÉ</AutoTranslate>
               </Link>
               <Link to="/interventions/chirurgie-orthopedique" className="group bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
                 <img src={cardioImg} alt="Chirurgie Orthopédique" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
-                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">CHIRURGIE ORTHOPÉDIQUE</h3>
+                <AutoTranslate as="h3" className="text-sm font-semibold text-[#05125d] text-center leading-tight">CHIRURGIE ORTHOPÉDIQUE</AutoTranslate>
               </Link>
               <Link to="/interventions/pied-diabetique" className="group bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
                 <img src={orthoImg} alt="PEC diabète et Pied diabétique" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
-                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">PEC DIABÈTE ET PIED DIABÉTIQUE</h3>
+                <AutoTranslate as="h3" className="text-sm font-semibold text-[#05125d] text-center leading-tight">PEC DIABÈTE ET PIED DIABÉTIQUE</AutoTranslate>
               </Link>
               <Link to="/interventions/ophthalmologie" className="group bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
                 <img src={neuroImg} alt="Ophthalmologie" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
-                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">OPHTHALMOLOGIE</h3>
+                <AutoTranslate as="h3" className="text-sm font-semibold text-[#05125d] text-center leading-tight">OPHTHALMOLOGIE</AutoTranslate>
               </Link>
               <Link to="/interventions/gynecologie" className="group bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition duration-300">
                 <img src={infertImg} alt="Gynécologie" className="w-20 h-20 object-contain mx-auto mb-4 transition-transform duration-200 group-hover:scale-105" />
-                <h3 className="text-sm font-semibold text-[#05125d] text-center leading-tight">GYNÉCOLOGIE</h3>
+                <AutoTranslate as="h3" className="text-sm font-semibold text-[#05125d] text-center leading-tight">GYNÉCOLOGIE</AutoTranslate>
               </Link>
             </div>
           </div>
@@ -238,21 +250,21 @@ export default function Home() {
       {/* Elite Care Travel Benefits Section */}
       <section className="py-20 bg-gradient-to-r from-[#05125d] to-[#0a1f7a] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+          <AutoTranslate as="h2" className="text-3xl md:text-4xl font-bold mb-8" style={{ fontFamily: "'Montserrat', sans-serif" }}>
             Elite Care Travel: UN ACCOMPAGNEMENT MÉDICAL PERSONNALISÉ
-          </h2>
+          </AutoTranslate>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-gradient-to-br from-[#cfb654] to-[#b8a047] p-6 rounded-lg text-center">
-              <h3 className="text-sm font-semibold text-[#05125d]">DEVIS GRATUIT ET PERSONNALISÉ</h3>
+              <AutoTranslate as="h3" className="text-sm font-semibold text-[#05125d]">DEVIS GRATUIT ET PERSONNALISÉ</AutoTranslate>
             </div>
             <div className="bg-gradient-to-br from-[#cfb654] to-[#b8a047] p-6 rounded-lg text-center">
-              <h3 className="text-sm font-semibold text-[#05125d]">PROCÉDURE SIMPLE DU SÉJOUR MÉDICAL EN TUNISIE</h3>
+              <AutoTranslate as="h3" className="text-sm font-semibold text-[#05125d]">PROCÉDURE SIMPLE DU SÉJOUR MÉDICAL EN TUNISIE</AutoTranslate>
             </div>
             <div className="bg-gradient-to-br from-[#cfb654] to-[#b8a047] p-6 rounded-lg text-center">
-              <h3 className="text-sm font-semibold text-[#05125d]">MEILLEURS CHIRURGIENS TUNISIENS</h3>
+              <AutoTranslate as="h3" className="text-sm font-semibold text-[#05125d]">MEILLEURS CHIRURGIENS TUNISIENS</AutoTranslate>
             </div>
             <div className="bg-gradient-to-br from-[#cfb654] to-[#b8a047] p-6 rounded-lg text-center">
-              <h3 className="text-sm font-semibold text-[#05125d]">MEILLEURS TARIFS AVEC Elite Care Travel</h3>
+              <AutoTranslate as="h3" className="text-sm font-semibold text-[#05125d]">MEILLEURS TARIFS AVEC Elite Care Travel</AutoTranslate>
             </div>
           </div>
         </div>
@@ -261,24 +273,24 @@ export default function Home() {
       {/* Tunisia Destination Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#05125d] mb-8" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+          <AutoTranslate as="h2" className="text-3xl md:text-4xl font-bold text-[#05125d] mb-8" style={{ fontFamily: "'Montserrat', sans-serif" }}>
             LA TUNISIE: LA MEILLEURE DESTINATION POUR VOTRE SÉJOUR MÉDICAL
-          </h2>
+          </AutoTranslate>
           <div className="max-w-4xl mx-auto">
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            <AutoTranslate as="p" className="text-lg text-gray-700 leading-relaxed mb-6">
               De renommée internationale, les <strong>chirurgiens esthétiques et généraux tunisiens</strong> disposent de l'expertise et du savoir-faire requis pour le succès des interventions. Ils sont également connus pour leur hospitalité et accueil. Vous aurez droit à toute l'attention dont vous aurez besoin.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            </AutoTranslate>
+            <AutoTranslate as="p" className="text-lg text-gray-700 leading-relaxed mb-6">
               De plus, les <strong>cliniques en Tunisie</strong> disposent d'équipements à la pointe de la technologie, qui répondent à tous les critères d'exigences que les cliniques européennes. Dès votre sortie de la clinique, vous serez logé dans un <strong>hôtel 5 étoiles</strong> où vous serez accompagné par un infirmier, mandaté par nos soins, qui sera à votre écoute tout au long de votre convalescence.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed mb-8">
+            </AutoTranslate>
+            <AutoTranslate as="p" className="text-lg text-gray-700 leading-relaxed mb-8">
               Pour tout complément d'information ou demande personnalisée, <strong>contactez-nous</strong> ou demandez un <strong>Devis Gratuit</strong>.
-            </p>
+            </AutoTranslate>
             <Link
               to="/contact"
               className="inline-block bg-gradient-to-r from-[#cfb654] to-[#b8a047] text-[#05125d] font-bold py-4 px-8 rounded-lg text-lg hover:from-[#b8a047] hover:to-[#a68f3f] hover:text-white transition duration-200 transform hover:scale-105 shadow-xl"
             >
-              Demandez votre devis gratuit
+              <AutoTranslate>Demandez votre devis gratuit</AutoTranslate>
             </Link>
           </div>
         </div>

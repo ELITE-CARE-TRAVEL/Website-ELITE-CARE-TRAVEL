@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import AutoTranslate from "../components/AutoTranslate";
 
 export default function PiedDiabetique() {
   return (
@@ -9,9 +10,9 @@ export default function PiedDiabetique() {
       {/* Intro */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#05125d] text-center mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-            PEC DIABÈTE ET PIED DIABÉTIQUE EN TUNISIE AVEC Elite Care Travel
-          </h1>
+          <AutoTranslate as="h1" className="text-3xl md:text-4xl font-bold text-[#05125d] text-center mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+            PIED DIABÉTIQUE - PEC DIABÈTE EN TUNISIE
+          </AutoTranslate>
           <p className="text-gray-700 leading-relaxed mb-4">
             Spécialisée dans le <strong>voyage médical</strong> à l'étranger, votre agence de tourisme médical, Elite Care Travel,
             vous confie aux soins des <strong>meilleurs spécialistes</strong> tunisiens en <strong>prise en charge du diabète</strong> et

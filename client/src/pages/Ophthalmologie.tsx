@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import AutoTranslate from "../components/AutoTranslate";
 
 export default function Ophthalmologie() {
   return (
@@ -9,9 +10,9 @@ export default function Ophthalmologie() {
       {/* Intro */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#05125d] text-center mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+          <AutoTranslate as="h1" className="text-3xl md:text-4xl font-bold text-[#05125d] text-center mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
             SERVICE OPHTALMOLOGIE DE Elite Care Travel
-          </h1>
+          </AutoTranslate>
           <p className="text-gray-700 leading-relaxed mb-4">
             Spécialisée dans le <strong>tourisme médical</strong> en Tunisie, Elite Care Travel vous accompagne pour tous vos 
             <strong> besoins ophtalmologiques</strong>. L'<strong>ophtalmologie</strong> est la spécialité médicale qui traite
@@ -44,9 +45,9 @@ export default function Ophthalmologie() {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
-              <h2 className="text-2xl md:text-3xl font-semibold text-[#05125d] mb-8" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+              <AutoTranslate as="h2" className="text-2xl md:text-3xl font-semibold text-[#05125d] mb-8" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                 QUAND CONSULTER UN OPHTALMOLOGUE ?
-              </h2>
+              </AutoTranslate>
               <p className="text-gray-700 leading-relaxed">
                 La consultation ophtalmologique est recommandée pour le <strong>dépistage</strong> et le traitement de nombreuses
                 pathologies : <strong>baisse de l'acuité visuelle</strong>, <strong>vision floue</strong>, <strong>douleurs oculaires</strong>,
@@ -71,12 +72,12 @@ export default function Ophthalmologie() {
       {/* Detailed Interventions */}
       <section className="py-14 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-semibold text-center text-[#05125d] mb-12" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+          <AutoTranslate as="h2" className="text-2xl md:text-3xl font-semibold text-center text-[#05125d] mb-12" style={{ fontFamily: "'Montserrat', sans-serif" }}>
             INTERVENTIONS OPHTALMOLOGIQUES SPÉCIALISÉES
-          </h2>
+          </AutoTranslate>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-[#05125d] mb-4">CHIRURGIE DE LA CATARACTE</h3>
+              <AutoTranslate as="h3" className="text-lg font-semibold text-[#05125d] mb-4">CHIRURGIE DE LA CATARACTE</AutoTranslate>
               <p className="text-gray-700 leading-relaxed text-sm">
                 Traitement chirurgical de l'<strong>opacification du cristallin</strong> par <strong>phacoémulsification</strong>
                 avec implantation de <strong>lentilles intraoculaires</strong> pour restaurer une vision claire et nette.
@@ -84,7 +85,7 @@ export default function Ophthalmologie() {
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-[#05125d] mb-4">CHIRURGIE RÉFRACTIVE</h3>
+              <AutoTranslate as="h3" className="text-lg font-semibold text-[#05125d] mb-4">CHIRURGIE RÉFRACTIVE</AutoTranslate>
               <p className="text-gray-700 leading-relaxed text-sm">
                 Correction des <strong>troubles de la vision</strong> (myopie, hypermétropie, astigmatisme) par <strong>laser LASIK</strong>,
                 <strong> PKR</strong> ou <strong>SMILE</strong> pour une vision sans lunettes ni lentilles.
@@ -92,7 +93,7 @@ export default function Ophthalmologie() {
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-[#05125d] mb-4">TRAITEMENT DU GLAUCOME</h3>
+              <AutoTranslate as="h3" className="text-lg font-semibold text-[#05125d] mb-4">TRAITEMENT DU GLAUCOME</AutoTranslate>
               <p className="text-gray-700 leading-relaxed text-sm">
                 Prise en charge du <strong>glaucome</strong> par <strong>trabéculectomie</strong>, <strong>sclérectomie profonde</strong>
                 ou <strong>implants de drainage</strong> pour préserver le nerf optique et éviter la cécité.
@@ -100,7 +101,7 @@ export default function Ophthalmologie() {
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-[#05125d] mb-4">CHIRURGIE DE LA RÉTINE</h3>
+              <AutoTranslate as="h3" className="text-lg font-semibold text-[#05125d] mb-4">CHIRURGIE DE LA RÉTINE</AutoTranslate>
               <p className="text-gray-700 leading-relaxed text-sm">
                 Traitement des <strong>décollements de rétine</strong>, <strong>rétinopathie diabétique</strong> et 
                 <strong> dégénérescence maculaire</strong> par vitrectomie et injections intravitréennes.
@@ -108,7 +109,7 @@ export default function Ophthalmologie() {
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-[#05125d] mb-4">CHIRURGIE DES PAUPIÈRES</h3>
+              <AutoTranslate as="h3" className="text-lg font-semibold text-[#05125d] mb-4">CHIRURGIE DES PAUPIÈRES</AutoTranslate>
               <p className="text-gray-700 leading-relaxed text-sm">
                 Correction de la <strong>ptôse palpébrale</strong>, traitement du <strong>chalazion</strong>, de 
                 l'<strong>entropion</strong> et de l'<strong>ectropion</strong> pour améliorer fonction et esthétique.
@@ -116,7 +117,7 @@ export default function Ophthalmologie() {
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-lg font-semibold text-[#05125d] mb-4">TRAITEMENT DU STRABISME</h3>
+              <AutoTranslate as="h3" className="text-lg font-semibold text-[#05125d] mb-4">TRAITEMENT DU STRABISME</AutoTranslate>
               <p className="text-gray-700 leading-relaxed text-sm">
                 Chirurgie correctrice du <strong>strabisme</strong> chez l'enfant et l'adulte pour rétablir le 
                 <strong> parallélisme des yeux</strong> et améliorer la vision binoculaire.
@@ -129,9 +130,9 @@ export default function Ophthalmologie() {
       {/* Contact */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-2xl font-semibold text-[#05125d] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+          <AutoTranslate as="h2" className="text-2xl font-semibold text-[#05125d] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
             CONTACTEZ-NOUS POUR VOTRE SÉJOUR OPHTALMOLOGIQUE
-          </h2>
+          </AutoTranslate>
           <p className="text-gray-700 leading-relaxed mb-8">
             Elite Care Travel vous accompagne dans votre démarche de <strong>tourisme médical</strong> pour ophtalmologie en Tunisie.
             Nos équipes médicales vous garantissent une <strong>prise en charge complète</strong> avec les meilleurs ophtalmologues tunisiens.

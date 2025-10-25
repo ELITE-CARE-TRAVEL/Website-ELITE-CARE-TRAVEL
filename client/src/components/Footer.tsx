@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import logo from "../assets/xx.png";
+import AutoTranslate from './AutoTranslate';
 
 export default function Footer() {
   return (
@@ -15,9 +16,9 @@ export default function Footer() {
                 Elite Care Travel
               </span>
             </div>
-            <p className="text-[#cfb654] text-lg leading-relaxed mb-6 max-w-md font-medium">
+            <AutoTranslate as="p" className="text-[#cfb654] text-lg leading-relaxed mb-6 max-w-md font-medium">
               Excellence en tourisme médical en Tunisie. Sécurité, confort et services premium pour votre bien-être et votre santé.
-            </p>
+            </AutoTranslate>
             <div className="flex space-x-4">
               <a href="#" className="w-10 h-10 bg-[#cfb654] rounded-full flex items-center justify-center hover:bg-[#b8a047] hover:scale-110 transition duration-200 shadow-lg">
                 <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -44,16 +45,16 @@ export default function Footer() {
 
           {/* Quick Links */}
         <div>
-            <h3 className="text-xl font-semibold mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, color: '#cfb654' }}>
+            <AutoTranslate as="h3" className="text-xl font-semibold mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, color: '#cfb654' }}>
               Liens Rapides
-            </h3>
+            </AutoTranslate>
             <ul className="space-y-3">
               <li>
                 <Link to="/" className="text-white hover:text-[#cfb654] transition duration-200 flex items-center font-medium">
                   <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                   </svg>
-                  Accueil
+                  <AutoTranslate>Accueil</AutoTranslate>
                 </Link>
               </li>
               <li>
@@ -61,7 +62,7 @@ export default function Footer() {
                   <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  Guide
+                  <AutoTranslate>Guide</AutoTranslate>
                 </Link>
               </li>
               <li>
@@ -69,7 +70,7 @@ export default function Footer() {
                   <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                   </svg>
-                  Tarifs
+                  <AutoTranslate>Tarifs</AutoTranslate>
                 </Link>
               </li>
               <li>
@@ -77,7 +78,7 @@ export default function Footer() {
                   <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
-                  Contact
+                  <AutoTranslate>Contact</AutoTranslate>
                 </Link>
               </li>
           </ul>
@@ -85,9 +86,9 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-semibold mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, color: '#cfb654' }}>
+            <AutoTranslate as="h3" className="text-xl font-semibold mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800, color: '#cfb654' }}>
               Contact
-            </h3>
+            </AutoTranslate>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <div className="w-6 h-6 bg-[#cfb654] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
@@ -130,17 +131,17 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-[#cfb654] text-sm font-medium">
-              © {new Date().getFullYear()} Elite Care Travel. Tous droits réservés.
+              © {new Date().getFullYear()} Elite Care Travel. <AutoTranslate>Tous droits réservés.</AutoTranslate>
             </div>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-white hover:text-[#cfb654] transition duration-200 font-medium">
-                Politique de Confidentialité
+                <AutoTranslate>Politique de Confidentialité</AutoTranslate>
               </a>
               <a href="#" className="text-white hover:text-[#cfb654] transition duration-200 font-medium">
-                Conditions d'Utilisation
+                <AutoTranslate>Conditions d'Utilisation</AutoTranslate>
               </a>
               <a href="#" className="text-white hover:text-[#cfb654] transition duration-200 font-medium">
-                Mentions Légales
+                <AutoTranslate>Mentions Légales</AutoTranslate>
               </a>
             </div>
           </div>

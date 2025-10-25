@@ -6,6 +6,7 @@ const userRoutes = require('./routes/User');
 const adminRoutes = require('./routes/Admin');
 const eventRoutes = require('./routes/Event');
 const adminProfileRoutes = require('./routes/AdminProfile');
+const translationRoutes = require('./routes/Translation');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -23,6 +24,7 @@ app.use('/api', userRoutes);
 app.use('/api', adminRoutes);
 app.use('/api', eventRoutes);
 app.use('/api', adminProfileRoutes);
+app.use('/api', translationRoutes);
 
 async function start() {
   try {

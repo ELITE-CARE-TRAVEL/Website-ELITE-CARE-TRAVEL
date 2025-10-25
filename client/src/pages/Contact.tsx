@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import AutoTranslate from '../components/AutoTranslate';
+import { useTranslate } from '../hooks/useTranslation';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -10,6 +12,20 @@ export default function Contact() {
     country: '',
     message: ''
   });
+
+  // Translation hook for dynamic text
+  const nameLabel = useTranslate('Nom complet *');
+  const emailLabel = useTranslate('Email *');
+  const countryLabel = useTranslate('Pays *');
+  const phoneLabel = useTranslate('Téléphone');
+  const messageLabel = useTranslate('Message *');
+  const submitBtn = useTranslate('Envoyer le Message');
+  const namePlaceholder = useTranslate('Votre nom complet');
+  const messagePlaceholder = useTranslate('Décrivez votre demande en détail...');
+  const selectCountry = useTranslate('Sélectionnez votre pays');
+  const selectCountryFirst = useTranslate("Sélectionnez d'abord un pays");
+  const successMsg = useTranslate('Votre message a été envoyé avec succès!');
+  const errorMsg = useTranslate("Erreur lors de l'envoi du message");
 
   const countries = [
     { name: 'Tunisia', code: '+216', flag: '🇹🇳' },
@@ -53,10 +69,10 @@ export default function Contact() {
       console.log('Success response:', result);
       
       setFormData({ name: '', email: '', phone: '', country: '', message: '' });
-      alert('Votre message a été envoyé avec succès!');
+      alert(successMsg);
     } catch (err: any) {
       console.error('Submit error:', err);
-      alert(err.message || 'Erreur lors de l\'envoi du message');
+      alert(err.message || errorMsg);
     }
   };
 
@@ -66,25 +82,25 @@ export default function Contact() {
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-[#05125d] to-[#0a1f7a] text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+          <AutoTranslate as="h1" className="text-4xl md:text-6xl font-bold mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
             Contactez Elite Care Travel
-          </h1>
-          <p className="text-xl md:text-2xl text-[#cfb654] font-semibold">
+          </AutoTranslate>
+          <AutoTranslate as="p" className="text-xl md:text-2xl text-[#cfb654] font-semibold">
             Votre partenaire en tourisme médical en Tunisie
-          </p>
+          </AutoTranslate>
         </div>
       </div>
       {/* Contact Form - centered and elevated */}
       <div className="max-w-3xl md:max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 md:-mt-16">
         <div className="bg-white rounded-2xl md:rounded-3xl shadow-2xl p-6 sm:p-8 md:p-10 border border-gray-100 ring-1 ring-black/5 hover:ring-[#cfb654]/20 transition-colors duration-300">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#05125d] mb-8 tracking-tight" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+          <AutoTranslate as="h2" className="text-3xl md:text-4xl font-extrabold text-[#05125d] mb-8 tracking-tight" style={{ fontFamily: "'Montserrat', sans-serif" }}>
             Formulaire de Contact
-          </h2>
+          </AutoTranslate>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-[#05125d] mb-2">
-                  Nom complet *
+                  {nameLabel}
                 </label>
                 <input
                   type="text"
@@ -94,12 +110,12 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   className="w-full px-4 py-3.5 border border-gray-200 bg-gray-50 rounded-xl shadow-sm focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] hover:border-gray-300 transition-colors duration-200 placeholder-gray-400"
-                  placeholder="Votre nom complet"
+                  placeholder={namePlaceholder}
                 />
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-semibold text-[#05125d] mb-2">
-                  Email *
+                  {emailLabel}
                 </label>
                 <input
                   type="email"
@@ -116,7 +132,7 @@ export default function Contact() {
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="country" className="block text-sm font-semibold text-[#05125d] mb-2">
-                  Pays *
+                  {countryLabel}
                 </label>
                 <select
                   id="country"
@@ -126,7 +142,7 @@ export default function Contact() {
                   onChange={handleChange}
                   className="w-full px-4 py-3.5 border border-gray-200 bg-gray-50 rounded-xl shadow-sm focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] hover:border-gray-300 transition-colors duration-200 font-medium"
                 >
-                  <option value="">Sélectionnez votre pays</option>
+                  <option value="">{selectCountry}</option>
                   {countries.map((country) => (
                     <option key={country.name} value={country.name}>
                       {country.flag} {country.name} ({country.code})
@@ -136,7 +152,7 @@ export default function Contact() {
               </div>
               <div>
                 <label htmlFor="phone" className="block text-sm font-semibold text-[#05125d] mb-2">
-                  Téléphone
+                  {phoneLabel}
                 </label>
                 <div className="relative">
                   {selectedCountry && (
@@ -153,7 +169,7 @@ export default function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     className={`w-full ${selectedCountry ? 'pl-28' : 'pl-4'} pr-4 py-3.5 border border-gray-200 bg-gray-50 rounded-xl shadow-sm focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] hover:border-gray-300 transition-all duration-200 placeholder-gray-400`}
-                    placeholder={selectedCountry ? "XX XXX XXX" : "Sélectionnez d'abord un pays"}
+                    placeholder={selectedCountry ? "XX XXX XXX" : selectCountryFirst}
                     disabled={!selectedCountry}
                   />
                 </div>
@@ -161,7 +177,7 @@ export default function Contact() {
             </div>
             <div>
               <label htmlFor="message" className="block text-sm font-semibold text-[#05125d] mb-2">
-                Message *
+                {messageLabel}
               </label>
               <textarea
                 id="message"
@@ -171,14 +187,14 @@ export default function Contact() {
                 value={formData.message}
                 onChange={handleChange}
                 className="w-full px-4 py-3.5 h-40 border border-gray-200 bg-gray-50 rounded-xl shadow-sm focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] hover:border-gray-300 transition-colors duration-200 resize-y placeholder-gray-400"
-                placeholder="Décrivez votre demande en détail..."
+                placeholder={messagePlaceholder}
               />
             </div>
             <button
               type="submit"
               className="w-full bg-gradient-to-r from-[#cfb654] to-[#b8a047] text-[#05125d] py-4 px-6 rounded-xl font-extrabold text-lg hover:from-[#b8a047] hover:to-[#a68f3f] hover:text-white transition-transform duration-200 active:scale-95 shadow-xl ring-1 ring-[#cfb654]/20"
             >
-              Envoyer le Message
+              {submitBtn}
             </button>
           </form>
         </div>

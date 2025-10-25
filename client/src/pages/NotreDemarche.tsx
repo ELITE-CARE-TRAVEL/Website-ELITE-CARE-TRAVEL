@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import AutoTranslate from "../components/AutoTranslate";
 
 export default function NotreDemarche() {
   return (
@@ -9,12 +10,12 @@ export default function NotreDemarche() {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-r from-[#05125d] to-[#0a1f7a] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800 }}>
+          <AutoTranslate as="h1" className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800 }}>
             Notre Démarche
-          </h1>
-          <p className="text-xl md:text-2xl text-[#cfb654] max-w-3xl mx-auto leading-relaxed">
+          </AutoTranslate>
+          <AutoTranslate as="p" className="text-xl md:text-2xl text-[#cfb654] max-w-3xl mx-auto leading-relaxed">
             Elite Care Travel, Votre allié santé et bien-être en toute confiance
-          </p>
+          </AutoTranslate>
         </div>
       </section>
 
@@ -27,18 +28,18 @@ export default function NotreDemarche() {
             <div className="order-1 lg:order-2">
               <div className="space-y-8">
                 <div className="bg-gradient-to-r from-[#cfb654]/10 to-[#b8a047]/10 p-6 rounded-lg border-l-4 border-[#cfb654]">
-                  <h2 className="text-2xl font-bold text-[#05125d] mb-4" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                  <AutoTranslate as="h2" className="text-2xl font-bold text-[#05125d] mb-4" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                     Notre Approche
-                  </h2>
-                  <p className="text-lg text-gray-700 leading-relaxed">
+                  </AutoTranslate>
+                  <AutoTranslate as="p" className="text-lg text-gray-700 leading-relaxed">
                     Notre approche est de vous accompagner du début à la fin en mettant à votre disposition tous nos services médicaux avec un seul objectif : votre bien-être dans les meilleures conditions de sécurité et de confort.
-                  </p>
+                  </AutoTranslate>
                 </div>
 
                 <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200">
-                  <h2 className="text-2xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                  <AutoTranslate as="h2" className="text-2xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                     Nos Valeurs Fondamentales
-                  </h2>
+                  </AutoTranslate>
                   <div className="space-y-4">
                     <div className="flex items-start space-x-3">
                       <div className="w-8 h-8 bg-[#cfb654] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
@@ -47,8 +48,8 @@ export default function NotreDemarche() {
                         </svg>
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-[#05125d] mb-2">Transparence et efficacité médicale</h3>
-                        <p className="text-gray-700">Nous vous informons clairement sur chaque étape de votre parcours médical.</p>
+                        <AutoTranslate as="h3" className="text-lg font-semibold text-[#05125d] mb-2">Transparence et efficacité médicale</AutoTranslate>
+                        <AutoTranslate as="p" className="text-gray-700">Nous vous informons clairement sur chaque étape de votre parcours médical.</AutoTranslate>
                       </div>
                     </div>
 
@@ -59,8 +60,8 @@ export default function NotreDemarche() {
                         </svg>
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-[#05125d] mb-2">Professionnalisme à chaque instant</h3>
-                        <p className="text-gray-700">Accueil, préopératoire, per-opératoire, post-opératoire immédiat et à distance.</p>
+                        <AutoTranslate as="h3" className="text-lg font-semibold text-[#05125d] mb-2">Professionnalisme à chaque instant</AutoTranslate>
+                        <AutoTranslate as="p" className="text-gray-700">Accueil, préopératoire, per-opératoire, post-opératoire immédiat et à distance.</AutoTranslate>
                       </div>
                     </div>
 
@@ -71,20 +72,20 @@ export default function NotreDemarche() {
                         </svg>
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-[#05125d] mb-2">Accompagnement personnalisé, humain et sécurisant</h3>
-                        <p className="text-gray-700">Un suivi personnalisé adapté à vos besoins spécifiques.</p>
+                        <AutoTranslate as="h3" className="text-lg font-semibold text-[#05125d] mb-2">Accompagnement personnalisé, humain et sécurisant</AutoTranslate>
+                        <AutoTranslate as="p" className="text-gray-700">Un suivi personnalisé adapté à vos besoins spécifiques.</AutoTranslate>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 <div className="bg-gradient-to-r from-[#05125d] to-[#0a1f7a] text-white p-8 rounded-lg">
-                  <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                  <AutoTranslate as="h2" className="text-2xl font-bold mb-4" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                     Notre Engagement
-                  </h2>
-                  <p className="text-lg leading-relaxed">
+                  </AutoTranslate>
+                  <AutoTranslate as="p" className="text-lg leading-relaxed">
                     Parce que vous méritez l'excellence et le luxe, Elite Care Travel s'engage à vous offrir un niveau de service impeccable et un suivi attentif, le tout à des tarifs clairs et compétitifs.
-                  </p>
+                  </AutoTranslate>
                 </div>
               </div>
             </div>
@@ -95,17 +96,17 @@ export default function NotreDemarche() {
       {/* Call to Action */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+          <AutoTranslate as="h2" className="text-3xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
             Prêt à commencer votre parcours médical ?
-          </h2>
-          <p className="text-lg text-gray-700 mb-8">
+          </AutoTranslate>
+          <AutoTranslate as="p" className="text-lg text-gray-700 mb-8">
             Contactez-nous dès aujourd'hui pour un devis personnalisé et gratuit.
-          </p>
+          </AutoTranslate>
           <a
             href="/contact"
             className="inline-block bg-gradient-to-r from-[#cfb654] to-[#b8a047] text-[#05125d] font-bold py-4 px-8 rounded-lg text-lg hover:from-[#b8a047] hover:to-[#a68f3f] hover:text-white transition duration-200 transform hover:scale-105 shadow-xl"
           >
-            Demandez votre devis gratuit
+            <AutoTranslate>Demandez votre devis gratuit</AutoTranslate>
           </a>
         </div>
       </section>

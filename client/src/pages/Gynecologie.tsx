@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import AutoTranslate from "../components/AutoTranslate";
 
 export default function Gynecologie() {
   return (
@@ -9,9 +10,9 @@ export default function Gynecologie() {
       {/* Intro */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#05125d] text-center mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+          <AutoTranslate as="h1" className="text-3xl md:text-4xl font-bold text-[#05125d] text-center mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
             GYNÉCOLOGIE AVEC Elite Care Travel EN TUNISIE
-          </h1>
+          </AutoTranslate>
           <p className="text-gray-700 leading-relaxed mb-4">
             Elite Care Travel est une enseigne spécialisée dans le <strong>tourisme médical en Tunisie</strong> pour la gynécologie,
             la chirurgie esthétique et générale. Nous accompagnons les femmes dans toutes les étapes de leur vie avec une 
@@ -44,9 +45,9 @@ export default function Gynecologie() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* IVG */}
             <div className="bg-gray-50 p-6 rounded-lg shadow-md text-center">
-              <h2 className="text-xl font-bold text-[#05125d] mb-4" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+              <AutoTranslate as="h2" className="text-xl font-bold text-[#05125d] mb-4" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                 INTERRUPTION VOLONTAIRE DE GROSSESSE (IVG)
-              </h2>
+              </AutoTranslate>
               <img 
                 src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=500&auto=format&fit=crop&q=60" 
                 alt="Interruption volontaire de grossesse" 
@@ -62,9 +63,9 @@ export default function Gynecologie() {
 
             {/* Traitement de l'infertilité */}
             <div className="bg-gray-50 p-6 rounded-lg shadow-md text-center">
-              <h2 className="text-xl font-bold text-[#05125d] mb-4" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+              <AutoTranslate as="h2" className="text-xl font-bold text-[#05125d] mb-4" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                 TRAITEMENT DE L'INFERTILITÉ
-              </h2>
+              </AutoTranslate>
               <img 
                 src="/src/assets/Interventions/Traitement de l'infertilité/insémination-artificielle-300x215.png" 
                 alt="Traitement de l'infertilité" 
@@ -82,9 +83,9 @@ export default function Gynecologie() {
 
             {/* Esthétique gynécologique */}
             <div className="bg-gray-50 p-6 rounded-lg shadow-md text-center">
-              <h2 className="text-xl font-bold text-[#05125d] mb-4" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+              <AutoTranslate as="h2" className="text-xl font-bold text-[#05125d] mb-4" style={{ fontFamily: "'Montserrat', sans-serif" }}>
                 ESTHÉTIQUE GYNÉCOLOGIQUE
-              </h2>
+              </AutoTranslate>
               <img 
                 src="https://media.istockphoto.com/id/2177969417/fr/photo/apr%C3%A8s-avoir-termin%C3%A9-lexamen-gyn%C3%A9cologique-le-m%C3%A9decin-et-la-patiente-conversent.jpg?s=612x612&w=0&k=20&c=KCX21Z9ESpRf_VVmgIb9EBXxTAwtL8ksSuXkRGgSEnI=" 
                 alt="Esthétique gynécologique" 
@@ -110,13 +111,13 @@ export default function Gynecologie() {
               href="/contact" 
               className="bg-[#05125d] text-white py-3 px-8 rounded-lg hover:bg-[#0a1f7a] transition-colors duration-300 font-semibold shadow-md"
             >
-              Devis gratuit
+              <AutoTranslate>Devis gratuit</AutoTranslate>
             </a>
             <a 
               href="/pricing" 
               className="bg-[#cfb654] text-[#05125d] py-3 px-8 rounded-lg hover:bg-[#b8a047] transition-colors duration-300 font-semibold shadow-md"
             >
-              Voir les tarifs
+              <AutoTranslate>Voir les tarifs</AutoTranslate>
             </a>
           </div>
         </div>

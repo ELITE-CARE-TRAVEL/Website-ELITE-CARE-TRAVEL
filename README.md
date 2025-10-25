@@ -42,10 +42,45 @@ On departure day, we accompany you to the airport and remain available even afte
 ---
 
 ## 💻 Tech Stack
-- **Frontend:** React, TypeScript, Tailwind CSS  
-- **Backend:** Node.js, Express.js, Sequelize  
-- **Database:** MySQL  
-- **Features:** Multi-language support (EN / FR / AR), Responsive UI, Dynamic data handling  
+
+### **Frontend**
+- **Framework:** React 18 + TypeScript
+- **Styling:** Tailwind CSS
+- **Routing:** React Router DOM v7
+- **UI Components:** Custom components with Flowbite React
+- **Language Management:** React Context API with custom hooks
+- **Translation:** Auto-translation system with caching
+
+### **Backend**
+- **Runtime:** Node.js
+- **Framework:** Express.js v5
+- **ORM:** Sequelize
+- **Database:** MySQL / SQLite (development)
+- **Translation API:** MyMemory API (FREE, 10k words/day)
+- **Authentication:** JWT (JSON Web Tokens)
+- **Password Hashing:** bcryptjs
+- **HTTP Client:** Axios
+
+### **Key Features**
+- 🌐 **Multi-language Support:** French (default), English, Arabic with RTL support
+- 🔄 **Real-time Translation:** AutoTranslate component with in-memory caching
+- 📱 **Fully Responsive:** Mobile-first design, works on all devices
+- 🎨 **Modern UI:** Gradient backgrounds, smooth animations, glassmorphism effects
+- 🔐 **Secure Admin Panel:** JWT-based authentication
+- 🚀 **Fixed Navbar:** Scroll-aware navigation with backdrop blur
+- 💾 **Caching System:** Smart translation caching to minimize API calls
+- 📧 **Contact Forms:** Dynamic country selection with phone code integration
+
+### **Translation System Architecture**
+```
+Client (React) → API Request → Express Server → MyMemory API
+                                    ↓
+                            Translation Cache (In-Memory)
+                                    ↓
+                            Response to Client
+                                    ↓
+                            LocalStorage Cache
+```  
 
 ---
 
@@ -55,13 +90,138 @@ On departure day, we accompany you to the airport and remain available even afte
    git clone https://github.com/ELITE-CARE-TRAVEL/Website-ELITE-CARE-TRAVEL.git
 
 2. **Install dependencies**
-- cd client
-- npm install 
+   ```bash
+   # Install client dependencies
+   cd client
+   npm install
+   
+   # Install server dependencies
+   cd ../server
+   npm install
+   ```
 
-3. **Run frontend**
-- npm run dev
+3. **Environment Setup**
+   ```bash
+   # Server .env file (optional - defaults work fine)
+   cd server
+   # No .env needed for MyMemory API (it's free!)
+   ```
 
-4. **Run backend**
-- cd server
-- npm install
-- npm run dev
+4. **Run the application**
+   ```bash
+   # Terminal 1 - Run backend (port 3000)
+   cd server
+   npm run dev
+   
+   # Terminal 2 - Run frontend (port 5173)
+   cd client
+   npm run dev
+   ```
+
+5. **Access the application**
+   - Frontend: http://localhost:5173
+   - Backend API: http://localhost:3000
+
+---
+
+## 🌐 Translation System Usage
+
+### **How It Works**
+The website automatically translates all French text to English or Arabic when you switch languages using the flag buttons in the navbar.
+
+### **For Developers**
+Wrap any text you want to translate with the `AutoTranslate` component:
+
+```tsx
+import AutoTranslate from '../components/AutoTranslate';
+
+// For headings
+<AutoTranslate as="h1" className="text-4xl">
+  Votre texte en français
+</AutoTranslate>
+
+// For paragraphs
+<AutoTranslate as="p" className="text-lg">
+  Votre texte en français
+</AutoTranslate>
+
+// For inline text
+<button>
+  <AutoTranslate>Cliquez ici</AutoTranslate>
+</button>
+```
+
+### **Translation API**
+- **Provider:** MyMemory Translation API
+- **Cost:** FREE (10,000 words/day)
+- **Languages:** French ↔ English ↔ Arabic
+- **Caching:** Automatic (reduces API calls)
+- **Endpoint:** `/api/translate`
+
+---
+
+## 📁 Project Structure
+
+```
+Website-ELITE-CARE-TRAVEL/
+├── client/                    # React frontend
+│   ├── src/
+│   │   ├── components/       # Reusable components
+│   │   │   ├── AutoTranslate.tsx      # Translation wrapper
+│   │   │   ├── LanguageSwitcher.tsx   # Language selector
+│   │   │   ├── Navbar.tsx             # Navigation bar
+│   │   │   └── Footer.tsx             # Footer component
+│   │   ├── context/          # React Context providers
+│   │   │   └── LanguageContext.tsx    # Language state management
+│   │   ├── hooks/            # Custom React hooks
+│   │   │   └── useTranslation.ts      # Translation hook
+│   │   ├── pages/            # Page components
+│   │   └── assets/           # Images and static files
+│   └── package.json
+│
+├── server/                    # Express backend
+│   ├── controllers/          # Route controllers
+│   │   ├── Translation.js    # Translation endpoint
+│   │   ├── Admin.js          # Admin auth
+│   │   └── Event.js          # Event management
+│   ├── services/             # Business logic
+│   │   └── translationService.js  # MyMemory API integration
+│   ├── routes/               # API routes
+│   ├── models/               # Database models
+│   └── package.json
+│
+└── README.md                  # This file
+```
+
+---
+
+## 🚀 Deployment
+
+### **Frontend (Vercel/Netlify)**
+```bash
+cd client
+npm run build
+# Deploy the dist/ folder
+```
+
+### **Backend (Heroku/Railway)**
+```bash
+cd server
+npm start
+# Set PORT environment variable
+```
+
+---
+
+## 📝 License
+This project is licensed under the MIT License.
+
+---
+
+## 👥 Team
+**Elite Care Travel** - Medical Tourism Excellence in Tunisia
+
+---
+
+## 📞 Contact
+For more information, visit our website or contact us through the platform.
