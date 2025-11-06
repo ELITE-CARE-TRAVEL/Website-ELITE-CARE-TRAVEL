@@ -85,6 +85,10 @@ export default function Navbar() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
+                {/* Hover bridge to prevent gap */}
+                {isGuideOpen && (
+                  <div className="absolute left-0 right-0 top-full h-2" />
+                )}
                 {isGuideOpen && (
                   <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-xl shadow-2xl border border-gray-100 py-2">
                     <Link to="/guide/notre-demarche" className="block px-4 py-2.5 text-sm text-[#05125d] hover:bg-[#cfb654]/10 font-medium" onClick={() => setIsGuideOpen(false)}>
@@ -111,6 +115,10 @@ export default function Navbar() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
+                {/* Hover bridge to prevent gap */}
+                {isInterventionsOpen && (
+                  <div className="absolute left-0 right-0 top-full h-2" />
+                )}
                 {isInterventionsOpen && (
                   <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 max-h-96 overflow-y-auto">
                     <Link to="/interventions/chirurgie-esthetique" className="block px-4 py-2.5 text-sm text-[#05125d] hover:bg-[#cfb654]/10 font-medium" onClick={() => setIsInterventionsOpen(false)}>

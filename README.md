@@ -9,8 +9,8 @@
 
 <!-- Badges -->
 <p align="center">
-  <img src="https://img.shields.io/badge/React-18-blue?logo=react" alt="React Badge"/>
-  <img src="https://img.shields.io/badge/Node.js-Express-green?logo=node.js" alt="Node Badge"/>
+  <img src="https://img.shields.io/badge/React-19-blue?logo=react" alt="React Badge"/>
+  <img src="https://img.shields.io/badge/Node.js-≥18.0.0-green?logo=node.js" alt="Node Badge"/>
   <img src="https://img.shields.io/badge/License-MIT-yellow" alt="License Badge"/>
   <img src="https://img.shields.io/badge/Status-Active-brightgreen" alt="Status Badge"/>
 </p>
@@ -84,12 +84,26 @@ Client (React) → API Request → Express Server → MyMemory API
 
 ---
 
+## 📋 Prerequisites
+- **Node.js:** ≥18.0.0 (LTS recommended)
+- **npm:** ≥9.0.0 (or yarn/pnpm)
+
+> **Note:** This project is configured to work with multiple Node.js versions. The `.nvmrc` file specifies Node 18, and `.npmrc` ensures compatibility across different environments.
+
 ## ⚡ Installation & Setup
 1. **Clone the repository**
    ```bash
    git clone https://github.com/ELITE-CARE-TRAVEL/Website-ELITE-CARE-TRAVEL.git
+   ```
 
-2. **Install dependencies**
+2. **Use the correct Node.js version (optional but recommended)**
+   ```bash
+   # If you have nvm installed
+   nvm use
+   # This will use Node 18 as specified in .nvmrc
+   ```
+
+3. **Install dependencies**
    ```bash
    # Install client dependencies
    cd client
@@ -100,14 +114,14 @@ Client (React) → API Request → Express Server → MyMemory API
    npm install
    ```
 
-3. **Environment Setup**
+4. **Environment Setup**
    ```bash
    # Server .env file (optional - defaults work fine)
    cd server
    # No .env needed for MyMemory API (it's free!)
    ```
 
-4. **Run the application**
+5. **Run the application**
    ```bash
    # Terminal 1 - Run backend (port 3000)
    cd server
@@ -118,9 +132,31 @@ Client (React) → API Request → Express Server → MyMemory API
    npm run dev
    ```
 
-5. **Access the application**
+6. **Access the application**
    - Frontend: http://localhost:5173
    - Backend API: http://localhost:3000
+
+---
+
+## 🔧 Compatibility & Configuration
+
+### **Node.js Version Management**
+This project includes configuration files for maximum compatibility:
+
+- **`.nvmrc`** - Specifies Node.js 18 (use with `nvm use`)
+- **`.npmrc`** - Configured for flexible dependency installation:
+  - `engine-strict=false` - Allows installation with different Node versions
+  - `legacy-peer-deps=true` - Better compatibility with older packages
+  
+### **Supported Node.js Versions**
+- ✅ Node.js 18.x (LTS) - Recommended
+- ✅ Node.js 20.x (LTS) - Tested
+- ✅ Node.js 22.x - Compatible
+
+### **Package Manager Support**
+- npm ≥9.0.0
+- yarn ≥1.22.0
+- pnpm ≥8.0.0
 
 ---
 
