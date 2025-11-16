@@ -8,7 +8,6 @@ import {
   BuildingOfficeIcon,
   ClipboardDocumentCheckIcon,
   HeartIcon,
-  CheckCircleIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 
@@ -278,27 +277,11 @@ export default function NosServices() {
 
               {/* Modal Body */}
               <div className="p-8 overflow-y-auto max-h-[calc(85vh-180px)]">
-                <div className="mb-6">
-                  <h4 className="text-xl font-bold text-[#05125d] mb-3">Détail du service</h4>
-                  <p className="text-gray-700 leading-relaxed">
-                    {services[selectedService].details.intro}
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="text-xl font-bold text-[#05125d] mb-4">Ce qui est inclus</h4>
-                  <ul className="space-y-4">
-                    {services[selectedService].details.services.map((item, idx) => (
-                      <li
-                        key={idx}
-                        className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg hover:bg-[#fff7e0] transition-colors duration-200"
-                      >
-                        <CheckCircleIcon className="w-6 h-6 text-[#cfb654] flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700 font-medium">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <h4 className="text-xl font-bold text-[#05125d] mb-4">Détail du service</h4>
+                <p className="text-gray-700 leading-relaxed text-lg">
+                  {services[selectedService].details.intro}{" "}
+                  {services[selectedService].details.services.join(" ")}
+                </p>
               </div>
             </div>
           </div>
