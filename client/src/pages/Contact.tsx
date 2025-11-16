@@ -5,13 +5,7 @@ import AutoTranslate from '../components/AutoTranslate';
 import { useTranslate } from '../hooks/useTranslation';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    country: '',
-    message: ''
-  });
+  const [selectedCountryName, setSelectedCountryName] = useState('');
 
   // Translation hook for dynamic text
   const nameLabel = useTranslate('Nom complet *');
@@ -24,8 +18,6 @@ export default function Contact() {
   const messagePlaceholder = useTranslate('Décrivez votre demande en détail...');
   const selectCountry = useTranslate('Sélectionnez votre pays');
   const selectCountryFirst = useTranslate("Sélectionnez d'abord un pays");
-  const successMsg = useTranslate('Votre message a été envoyé avec succès!');
-  const errorMsg = useTranslate("Erreur lors de l'envoi du message");
 
   const countries = [
     { name: 'Tunisia', code: '+216', flag: '🇹🇳' },
@@ -34,46 +26,10 @@ export default function Contact() {
     { name: 'Canada', code: '+1', flag: '🇨🇦' }
   ];
 
-  const selectedCountry = countries.find(c => c.name === formData.country);
+  const selectedCountry = countries.find(c => c.name === selectedCountryName);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted with data:', formData);
-    try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
-      console.log('Sending request to:', `${apiUrl}/api/contact`);
-      
-      const res = await fetch(`${apiUrl}/api/contact`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-      
-      console.log('Response status:', res.status);
-      console.log('Response ok:', res.ok);
-      
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        console.error('Error response:', data);
-        throw new Error(data.error || 'Une erreur est survenue');
-      }
-      
-      const result = await res.json();
-      console.log('Success response:', result);
-      
-      setFormData({ name: '', email: '', phone: '', country: '', message: '' });
-      alert(successMsg);
-    } catch (err: any) {
-      console.error('Submit error:', err);
-      alert(err.message || errorMsg);
-    }
+  const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedCountryName(e.target.value);
   };
 
   return (
@@ -96,7 +52,19 @@ export default function Contact() {
           <AutoTranslate as="h2" className="text-3xl md:text-4xl font-extrabold text-[#05125d] mb-8 tracking-tight" style={{ fontFamily: "'Montserrat', sans-serif" }}>
             Formulaire de Contact
           </AutoTranslate>
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form 
+            action="https://formsubmit.co/contact@elitecaretravel.com" 
+            method="POST" 
+            className="space-y-6"
+          >
+            {/* Anti-spam honeypot */}
+            <input type="text" name="_honey" style={{ display: 'none' }} />
+            
+            {/* Disable Captcha */}
+            <input type="hidden" name="_captcha" value="false" />
+            
+            {/* Redirect after success - Update this URL to your actual domain after deployment */}
+            <input type="hidden" name="_next" value={`${window.location.origin}/thank-you`} />
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-[#05125d] mb-2">
@@ -107,8 +75,6 @@ export default function Contact() {
                   id="name"
                   name="name"
                   required
-                  value={formData.name}
-                  onChange={handleChange}
                   className="w-full px-4 py-3.5 border border-gray-200 bg-gray-50 rounded-xl shadow-sm focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] hover:border-gray-300 transition-colors duration-200 placeholder-gray-400"
                   placeholder={namePlaceholder}
                 />
@@ -122,8 +88,6 @@ export default function Contact() {
                   id="email"
                   name="email"
                   required
-                  value={formData.email}
-                  onChange={handleChange}
                   className="w-full px-4 py-3.5 border border-gray-200 bg-gray-50 rounded-xl shadow-sm focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] hover:border-gray-300 transition-colors duration-200 placeholder-gray-400"
                   placeholder="votre@email.com"
                 />
@@ -138,8 +102,8 @@ export default function Contact() {
                   id="country"
                   name="country"
                   required
-                  value={formData.country}
-                  onChange={handleChange}
+                  value={selectedCountryName}
+                  onChange={handleCountryChange}
                   className="w-full px-4 py-3.5 border border-gray-200 bg-gray-50 rounded-xl shadow-sm focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] hover:border-gray-300 transition-colors duration-200 font-medium"
                 >
                   <option value="">{selectCountry}</option>
@@ -166,8 +130,6 @@ export default function Contact() {
                     type="tel"
                     id="phone"
                     name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
                     className={`w-full ${selectedCountry ? 'pl-28' : 'pl-4'} pr-4 py-3.5 border border-gray-200 bg-gray-50 rounded-xl shadow-sm focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] hover:border-gray-300 transition-all duration-200 placeholder-gray-400`}
                     placeholder={selectedCountry ? "XX XXX XXX" : selectCountryFirst}
                     disabled={!selectedCountry}
@@ -184,8 +146,6 @@ export default function Contact() {
                 name="message"
                 required
                 rows={6}
-                value={formData.message}
-                onChange={handleChange}
                 className="w-full px-4 py-3.5 h-40 border border-gray-200 bg-gray-50 rounded-xl shadow-sm focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] hover:border-gray-300 transition-colors duration-200 resize-y placeholder-gray-400"
                 placeholder={messagePlaceholder}
               />

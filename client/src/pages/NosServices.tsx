@@ -1,156 +1,310 @@
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import {
+  BriefcaseIcon,
+  UsersIcon,
+  TruckIcon,
+  BuildingOfficeIcon,
+  ClipboardDocumentCheckIcon,
+  HeartIcon,
+  CheckCircleIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
+
+type ServiceDetail = {
+  intro: string;
+  services: string[];
+};
+
+type Service = {
+  name: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  description: string;
+  details: ServiceDetail;
+};
+
+const services: Service[] = [
+  {
+    name: "Prise en charge VIP et personnalisée",
+    icon: BriefcaseIcon,
+    description:
+      "Diagnostic complet, devis estimatif et organisation sur-mesure de votre séjour médical.",
+    details: {
+      intro:
+        "Une fois votre dossier validé par notre médecin conseil, le Dr Yasmine Gharsa, en collaboration avec nos spécialistes, vous remettra un diagnostic complet et détaillé.",
+      services: [
+        "Analyse complète de votre dossier médical",
+        "Recommandation du type de prise en charge adapté",
+        "Devis estimatif clair et transparent",
+        "Organisation sur-mesure de votre séjour médical",
+        "Liste des examens préopératoires indispensables avec explications détaillées",
+      ],
+    },
+  },
+  {
+    name: "Accueil prestigieux dès votre arrivée",
+    icon: UsersIcon,
+    description:
+      "Accueil personnalisé à l’aéroport et prise en charge des formalités pour une arrivée sereine.",
+    details: {
+      intro:
+        "À l’aéroport de Tunis-Carthage, un représentant Elite Care Travel vous attendra avec une pancarte à votre nom pour un accueil entièrement personnalisé.",
+      services: [
+        "Accueil VIP à l’aéroport de Tunis-Carthage",
+        "Assistance pour toutes les formalités aux services frontaliers",
+        "Organisation d’un transfert privé en véhicule haut de gamme",
+        "Accompagnement jusqu’à votre hôtel",
+        "Arrivée sereine, confortable et élégante",
+      ],
+    },
+  },
+  {
+    name: "Transferts privés d’exception",
+    icon: TruckIcon,
+    description:
+      "Déplacements organisés en véhicule haut de gamme avec chauffeur privé, élégance et discrétion.",
+    details: {
+      intro:
+        "Pour votre confort et votre tranquillité, Elite Care Travel organise l’intégralité de vos déplacements durant votre séjour médical.",
+      services: [
+        "Transferts privés entre l’aéroport, la clinique et l’hôtel",
+        "Chauffeur privé dédié pendant vos déplacements médicaux",
+        "Véhicules haut de gamme pour un confort optimal",
+        "Service discret, élégant et ponctuel",
+        "Organisation flexible selon votre planning médical",
+      ],
+    },
+  },
+  {
+    name: "Séjour en Tunisie",
+    icon: BuildingOfficeIcon,
+    description:
+      "Organisation complète de votre hébergement pour un séjour serein, raffiné et sécurisé.",
+    details: {
+      intro:
+        "Notre équipe organise et supervise chaque détail de votre hébergement, pour un confort et un bien-être absolus tout au long de votre séjour.",
+      services: [
+        "Réservation et gestion de votre hébergement",
+        "Prise en charge des formalités administratives d’arrivée et de départ",
+        "Environnement raffiné, sécurisé et propice à la convalescence",
+        "Accompagnement attentif pendant toute la durée de votre séjour",
+        "Organisation d’un cadre de détente pour favoriser votre récupération",
+      ],
+    },
+  },
+  {
+    name: "Hospitalisation",
+    icon: ClipboardDocumentCheckIcon,
+    description:
+      "Prise en charge complète à la clinique, de l’admission au retour à l’hôtel après l’intervention.",
+    details: {
+      intro:
+        "À la clinique, nous prenons en charge toutes les formalités d’admission pour que vous puissiez vous concentrer uniquement sur votre santé.",
+      services: [
+        "Gestion des formalités d’admission à la clinique",
+        "Consultation préopératoire avec le chirurgien et l’anesthésiste",
+        "Accompagnement tout au long du parcours hospitalier",
+        "Transfert vers l’hôtel après l’intervention pour un repos optimal",
+        "Coordination avec l’équipe soignante pour un suivi fluide",
+      ],
+    },
+  },
+  {
+    name: "Votre suivi médical, notre priorité",
+    icon: HeartIcon,
+    description:
+      "Accompagnement continu avant, pendant et après l’intervention pour un rétablissement en toute sérénité.",
+    details: {
+      intro:
+        "Dès votre arrivée et tout au long de votre séjour, nous vous accompagnons à chaque étape pour garantir votre sécurité et votre confort.",
+      services: [
+        "Suivi avant l’intervention (consultations et préparation)",
+        "Accompagnement pendant votre séjour en clinique",
+        "Organisation et suivi de la convalescence",
+        "Réponses à toutes vos questions avant et après votre retour",
+        "Suivi à distance de l’évolution de votre rétablissement",
+      ],
+    },
+  },
+];
 
 export default function NosServices() {
-  const services = [
-    {
-      icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
-      emoji: "🩺",
-      title: "Consultation Initiale",
-      description: "Évaluation complète de vos besoins médicaux et planification personnalisée de votre séjour."
-    },
-    {
-      icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z",
-      emoji: "📅",
-      title: "Organisation du Séjour",
-      description: "Prise en charge complète de votre hébergement, transport et planning médical en Tunisie."
-    },
-    {
-      icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
-      emoji: "🧑‍⚕️",
-      title: "Suivi Médical",
-      description: "Accompagnement par des professionnels de santé tout au long de votre parcours de soins."
-    },
-    {
-      icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1",
-      emoji: "💶",
-      title: "Transparence Tarifaire",
-      description: "Devis détaillé et transparent sans frais cachés pour tous nos services."
-    },
-    {
-      icon: "M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
-      emoji: "☎️",
-      title: "Support 24/7",
-      description: "Assistance disponible 24h/24 et 7j/7 pendant tout votre séjour médical."
-    },
-    {
-      icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
-      emoji: "❤️‍🩹",
-      title: "Suivi Post-Opératoire",
-      description: "Accompagnement continu après votre intervention pour une récupération optimale."
+  const [scrollY, setScrollY] = useState(0);
+  const [selectedService, setSelectedService] = useState<number | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (selectedService !== null) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
     }
-  ];
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedService]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
+    <div className="min-h-screen bg-gray-50">
       <Navbar />
-      
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-[#05125d] to-[#0a1f7a] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 800 }}>
-            Nos Services
-          </h1>
-          <p className="text-xl md:text-2xl text-[#cfb654] max-w-3xl mx-auto leading-relaxed">
-            De votre première consultation jusqu'à votre retour, Elite Care Travel s'assure que votre parcours médical en Tunisie se déroule dans un climat de confiance
-          </p>
-        </div>
-      </section>
 
-      {/* Main Content */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 relative overflow-hidden">
+        {/* Parallax Background Elements */}
+        <div
+          className="absolute top-0 right-0 w-96 h-96 bg-[#cfb654]/20 rounded-full opacity-40 blur-3xl"
+          style={{ transform: `translateY(${scrollY * 0.15}px)` }}
+        />
+        <div
+          className="absolute bottom-0 left-0 w-96 h-96 bg-[#05125d]/10 rounded-full opacity-30 blur-3xl"
+          style={{ transform: `translateY(${-scrollY * 0.1}px)` }}
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-              Un Accompagnement Complet
+            <h2 className="text-sm md:text-base font-semibold tracking-wider mb-3 uppercase text-[#cfb654]">
+              Parcours médical d’exception
             </h2>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Grâce à des experts médicaux, un suivi personnalisé et une tranquillité garantie, nous vous offrons une expérience médicale d'exception.
+            <h3
+              className="text-4xl md:text-5xl font-bold text-[#05125d] mb-6"
+              style={{ fontFamily: "'Montserrat', sans-serif" }}
+            >
+              Nos Services
+            </h3>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#cfb654] to-[#b8a047] mx-auto mb-6" />
+            <p className="text-gray-700 text-lg max-w-3xl mx-auto">
+              De votre première consultation jusqu’à votre retour, Elite Care Travel s’assure que votre
+              parcours médical en Tunisie se déroule dans un climat de confiance, grâce à des experts
+              médicaux, un suivi personnalisé et une tranquillité garantie.
             </p>
           </div>
 
           {/* Services Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {services.map((service, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#cfb654] to-[#b8a047] rounded-full flex items-center justify-center mx-auto mb-6">
-                  {service.emoji ? (
-                    <span className="text-3xl" aria-hidden="true">{service.emoji}</span>
-                  ) : (
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={service.icon} />
-                    </svg>
-                  )}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <div
+                  key={service.name}
+                  className="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group border border-gray-100"
+                >
+                  <div className="flex flex-col items-start h-full">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#cfb654] to-[#b8a047] rounded-xl flex items-center justify-center mb-6 group-hover:from-[#05125d] group-hover:to-[#0a1f7a] transition-colors duration-300">
+                      <Icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h4
+                      className="text-2xl font-bold mb-4 text-[#05125d] group-hover:text-[#cfb654] transition-colors"
+                      style={{ fontFamily: "'Montserrat', sans-serif" }}
+                    >
+                      {service.name}
+                    </h4>
+                    <p className="text-gray-700 leading-relaxed flex-grow">
+                      {service.description}
+                    </p>
+
+                    {/* Suivre Plus Button */}
+                    <button
+                      onClick={() => setSelectedService(index)}
+                      className="mt-6 text-[#cfb654] font-semibold hover:text-[#05125d] transition-colors duration-300 flex items-center gap-2 group/btn"
+                    >
+                      <span>Suivre plus</span>
+                      <svg
+                        className="w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-[#05125d] mb-4 text-center" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                  {service.title}
-                </h3>
-                <p className="text-gray-700 text-center leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
-      </section>
 
-      {/* Benefits Section */}
-      <section className="py-20 bg-gradient-to-r from-[#05125d] to-[#0a1f7a] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-              Pourquoi Choisir Elite Care Travel ?
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-[#cfb654] rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-4">Expertise Médicale</h3>
-              <p className="text-lg">Chirurgiens tunisiens de renommée internationale</p>
-            </div>
-            <div className="text-center">
-              <div className="w-20 h-20 bg-[#cfb654] rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-4">Tarifs Compétitifs</h3>
-              <p className="text-lg">Qualité européenne à des prix accessibles</p>
-            </div>
-            <div className="text-center">
-              <div className="w-20 h-20 bg-[#cfb654] rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-4">Accompagnement Personnalisé</h3>
-              <p className="text-lg">Suivi attentif et humain à chaque étape</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-            Découvrez Nos Services
-          </h2>
-          <p className="text-lg text-gray-700 mb-8">
-            Contactez-nous pour une consultation personnalisée et découvrez comment nous pouvons vous accompagner.
-          </p>
-          <a
-            href="/contact"
-            className="inline-block bg-gradient-to-r from-[#cfb654] to-[#b8a047] text-[#05125d] font-bold py-4 px-8 rounded-lg text-lg hover:from-[#b8a047] hover:to-[#a68f3f] hover:text-white transition duration-200 transform hover:scale-105 shadow-xl"
+        {/* Modal Overlay */}
+        {selectedService !== null && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedService(null)}
           >
-            Demandez votre devis gratuit
-          </a>
-        </div>
+            {/* Blurred Backdrop */}
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-md" />
+
+            {/* Modal Content */}
+            <div
+              className="relative bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="bg-gradient-to-r from-[#cfb654] to-[#b8a047] p-6 relative">
+                <button
+                  onClick={() => setSelectedService(null)}
+                  className="absolute top-4 right-4 text-white hover:bg-white/20 rounded-full p-2 transition-colors duration-200"
+                >
+                  <XMarkIcon className="w-6 h-6" />
+                </button>
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center">
+                    {(() => {
+                      const Icon = services[selectedService].icon;
+                      return <Icon className="w-9 h-9 text-[#cfb654]" />;
+                    })()}
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-white" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                      {services[selectedService].name}
+                    </h3>
+                    <p className="text-[#f4e7b3] mt-1">
+                      {services[selectedService].description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Modal Body */}
+              <div className="p-8 overflow-y-auto max-h-[calc(85vh-180px)]">
+                <div className="mb-6">
+                  <h4 className="text-xl font-bold text-[#05125d] mb-3">Détail du service</h4>
+                  <p className="text-gray-700 leading-relaxed">
+                    {services[selectedService].details.intro}
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="text-xl font-bold text-[#05125d] mb-4">Ce qui est inclus</h4>
+                  <ul className="space-y-4">
+                    {services[selectedService].details.services.map((item, idx) => (
+                      <li
+                        key={idx}
+                        className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg hover:bg-[#fff7e0] transition-colors duration-200"
+                      >
+                        <CheckCircleIcon className="w-6 h-6 text-[#cfb654] flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-700 font-medium">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </section>
+
       <Footer />
     </div>
   );

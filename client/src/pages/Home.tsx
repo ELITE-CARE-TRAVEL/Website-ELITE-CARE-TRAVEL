@@ -151,7 +151,7 @@ export default function Home() {
             </AutoTranslate>
 
             <AutoTranslate as="p" className="text-lg text-gray-700 leading-relaxed mb-6">
-              Spécialisés dans la <span className="font-semibold text-[#05125d]">chirurgie esthétique</span>, la <span className="font-semibold text-[#05125d]">chirurgie de l'obésité</span>, l'<span className="font-semibold text-[#05125d]">orthopédie et la traumatologie</span>, le <span className="font-semibold text-[#05125d]">pied diabétique</span>, l'<span className="font-semibold text-[#05125d]">ophtalmologie</span> et la <span className="font-semibold text-[#05125d]">gynécologie</span>, nous travaillons exclusivement avec des médecins hautement qualifiés, reconnus pour leur compétence et leur professionnalisme.
+              Experts en <span className="font-semibold text-[#05125d]">chirurgie esthétique</span>, <span className="font-semibold text-[#05125d]">obésité</span>, <span className="font-semibold text-[#05125d]">orthopédie</span>, <span className="font-semibold text-[#05125d]">pied diabétique</span>, <span className="font-semibold text-[#05125d]">ophtalmologie</span> et <span className="font-semibold text-[#05125d]">gynécologie</span>, nous collaborons avec des médecins de haut niveau. D’autres spécialités sont également disponibles selon vos besoins.
             </AutoTranslate>
 
             <AutoTranslate as="p" className="text-lg text-gray-700 leading-relaxed mb-6">
@@ -159,40 +159,6 @@ export default function Home() {
               <span className="block mt-2 font-semibold text-[#cfb654] text-xl">Votre santé et votre bien-être sont notre priorité absolue.</span>
             </AutoTranslate>
           </div>
-
-          {/* Leadership Team */}
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Dr Yasmine Gharsa */}
-            <div className="bg-gradient-to-br from-[#05125d] to-[#0a1f7a] rounded-xl shadow-xl p-8 text-white transform hover:scale-105 transition duration-300">
-              <div className="flex items-center mb-4">
-                <div>
-                  <h3 className="text-2xl font-bold" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                    Dr Yasmine Gharsa
-                  </h3>
-                  <AutoTranslate as="p" className="text-[#cfb654] font-semibold">Supervision Médicale</AutoTranslate>
-                </div>
-              </div>
-              <AutoTranslate as="p" className="text-gray-200 leading-relaxed">
-                Diplômée de la grande Université de Médecine de Rabat et inscrite à l'Ordre des Médecins Tunisiens, chaque protocole est soigneusement étudié pour garantir sécurité, confort et résultats optimaux.
-              </AutoTranslate>
-            </div>
-
-            {/* Amina Bsais */}
-            <div className="bg-gradient-to-br from-[#cfb654] to-[#b8a047] rounded-xl shadow-xl p-8 text-[#05125d] transform hover:scale-105 transition duration-300">
-              <div className="flex items-center mb-4">
-                <div>
-                  <h3 className="text-2xl font-bold" style={{ fontFamily: "'Montserrat', sans-serif" }}>
-                    Amina Bsais
-                  </h3>
-                  <AutoTranslate as="p" className="text-[#05125d] font-semibold">Direction Générale</AutoTranslate>
-                </div>
-              </div>
-              <AutoTranslate as="p" className="text-[#05125d] leading-relaxed">
-                Diplômée de la prestigieuse école hôtelière VATEL et titulaire d'un Master en Business Administration (MBA). Grâce à son expertise en gestion et son sens aigu du service, elle veille à offrir une prise en charge haut de gamme, alliant professionnalisme, hospitalité et attention personnalisée.
-              </AutoTranslate>
-            </div>
-          </div>
-
           {/* Closing Statement */}
           <div className="text-center mt-12">
             <AutoTranslate as="p" className="text-2xl md:text-3xl font-bold text-[#05125d] mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
