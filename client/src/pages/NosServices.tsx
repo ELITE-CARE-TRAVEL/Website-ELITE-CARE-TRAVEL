@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import AutoTranslate from "../components/AutoTranslate";
 import {
   BriefcaseIcon,
   UsersIcon,
@@ -278,10 +280,16 @@ export default function NosServices() {
               {/* Modal Body */}
               <div className="p-8 overflow-y-auto max-h-[calc(85vh-180px)]">
                 <h4 className="text-xl font-bold text-[#05125d] mb-4">Détail du service</h4>
-                <p className="text-gray-700 leading-relaxed text-lg">
+                <p className="text-gray-700 leading-relaxed text-lg mb-8">
                   {services[selectedService].details.intro}{" "}
                   {services[selectedService].details.services.join(" ")}
                 </p>
+                <Link
+                  to="/contact"
+                  className="inline-block bg-gradient-to-r from-[#cfb654] to-[#b8a047] text-[#05125d] font-bold py-4 px-8 rounded-lg text-lg hover:from-[#b8a047] hover:to-[#a68f3f] hover:text-white transition duration-200 transform hover:scale-105 shadow-xl"
+                >
+                  <AutoTranslate>Demandez votre devis gratuit</AutoTranslate>
+                </Link>
               </div>
             </div>
           </div>

@@ -44,7 +44,7 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center space-x-4">
               <LanguageSwitcher />
               <a
-                href="./Contact"
+                href="/Contact"
                 className="flex items-center gap-2 bg-gradient-to-r from-[#cfb654] to-[#b8a047] text-[#05125d] px-5 py-2.5 rounded-full font-bold text-sm hover:shadow-lg hover:shadow-[#cfb654]/50 transition-all duration-300 transform hover:scale-105"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
