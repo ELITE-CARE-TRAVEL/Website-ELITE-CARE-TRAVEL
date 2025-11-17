@@ -36,7 +36,6 @@ export default function Navbar() {
                 <span className="text-lg md:text-xl font-bold text-[#cfb654] group-hover:text-[#d4c164] transition-colors" style={{ fontFamily: "'Cinzel Decorative', serif" }}>
                   Elite Care Travel
                 </span>
-                <p className="text-[10px] text-[#cfb654]/60 tracking-wider">MEDICAL EXCELLENCE</p>
               </div>
             </Link>
 

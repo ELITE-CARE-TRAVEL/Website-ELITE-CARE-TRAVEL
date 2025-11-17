@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import AutoTranslate from '../components/AutoTranslate';
@@ -6,6 +6,10 @@ import { useTranslate } from '../hooks/useTranslation';
 
 export default function Contact() {
   const [selectedCountryName, setSelectedCountryName] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [message, setMessage] = useState('');
 
   // Translation hook for dynamic text
   const nameLabel = useTranslate('Nom complet *');
@@ -31,6 +35,13 @@ export default function Contact() {
   const handleCountryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedCountryName(e.target.value);
   };
+
+  const isFormValid =
+    name.trim() !== '' &&
+    email.trim() !== '' &&
+    selectedCountryName.trim() !== '' &&
+    phone.trim() !== '' &&
+    message.trim() !== '';
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
@@ -75,6 +86,8 @@ export default function Contact() {
                   id="name"
                   name="name"
                   required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   className="w-full px-4 py-3.5 border border-gray-200 bg-gray-50 rounded-xl shadow-sm focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] hover:border-gray-300 transition-colors duration-200 placeholder-gray-400"
                   placeholder={namePlaceholder}
                 />
@@ -88,6 +101,8 @@ export default function Contact() {
                   id="email"
                   name="email"
                   required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full px-4 py-3.5 border border-gray-200 bg-gray-50 rounded-xl shadow-sm focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] hover:border-gray-300 transition-colors duration-200 placeholder-gray-400"
                   placeholder="votre@email.com"
                 />
@@ -130,9 +145,10 @@ export default function Contact() {
                     type="tel"
                     id="phone"
                     name="phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                     className={`w-full ${selectedCountry ? 'pl-28' : 'pl-4'} pr-4 py-3.5 border border-gray-200 bg-gray-50 rounded-xl shadow-sm focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] hover:border-gray-300 transition-all duration-200 placeholder-gray-400`}
                     placeholder={selectedCountry ? "XX XXX XXX" : selectCountryFirst}
-                    disabled={!selectedCountry}
                   />
                 </div>
               </div>
@@ -146,13 +162,18 @@ export default function Contact() {
                 name="message"
                 required
                 rows={6}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 className="w-full px-4 py-3.5 h-40 border border-gray-200 bg-gray-50 rounded-xl shadow-sm focus:ring-2 focus:ring-[#cfb654] focus:border-[#cfb654] hover:border-gray-300 transition-colors duration-200 resize-y placeholder-gray-400"
                 placeholder={messagePlaceholder}
               />
             </div>
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-[#cfb654] to-[#b8a047] text-[#05125d] py-4 px-6 rounded-xl font-extrabold text-lg hover:from-[#b8a047] hover:to-[#a68f3f] hover:text-white transition-transform duration-200 active:scale-95 shadow-xl ring-1 ring-[#cfb654]/20"
+              disabled={!isFormValid}
+              className={`w-full bg-gradient-to-r from-[#cfb654] to-[#b8a047] text-[#05125d] py-4 px-6 rounded-xl font-extrabold text-lg hover:from-[#b8a047] hover:to-[#a68f3f] hover:text-white transition-transform duration-200 active:scale-95 shadow-xl ring-1 ring-[#cfb654]/20 ${
+                !isFormValid ? 'opacity-60 cursor-not-allowed hover:from-[#cfb654] hover:to-[#b8a047] hover:text-[#05125d] active:scale-100' : ''
+              }`}
             >
               {submitBtn}
             </button>
