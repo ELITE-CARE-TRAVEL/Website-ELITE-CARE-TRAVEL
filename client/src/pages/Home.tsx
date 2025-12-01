@@ -146,17 +146,15 @@ export default function Home() {
           {/* Main Content */}
           <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 mb-8">
             <AutoTranslate as="p" className="text-lg text-gray-700 leading-relaxed mb-6">
-              Bienvenue chez <span className="font-bold text-[#05125d]">Elite Care Travel</span>, votre partenaire de confiance en tourisme médical en Tunisie.
-              Nous mettons à votre service l'excellence de la médecine tunisienne alliée à un accompagnement VIP pour faire de votre séjour santé une expérience sereine, sûre et réussie.
+              Bienvenue chez Elite Care Travel, votre partenaire de confiance en tourisme médical en Tunisie. Nous mettons à votre service l'excellence de la médecine tunisienne alliée à un accompagnement VIP pour faire de votre séjour santé une expérience sereine, sûre et réussie.
             </AutoTranslate>
 
             <AutoTranslate as="p" className="text-lg text-gray-700 leading-relaxed mb-6">
-              Experts en <span className="font-semibold text-[#05125d]">chirurgie esthétique</span>, <span className="font-semibold text-[#05125d]">obésité</span>, <span className="font-semibold text-[#05125d]">orthopédie</span>, <span className="font-semibold text-[#05125d]">pied diabétique</span>, <span className="font-semibold text-[#05125d]">ophtalmologie</span> et <span className="font-semibold text-[#05125d]">gynécologie</span>, nous collaborons avec des médecins de haut niveau. D’autres spécialités sont également disponibles selon vos besoins.
+              Experts en chirurgie esthétique, obésité, orthopédie, pied diabétique, ophtalmologie et gynécologie, nous collaborons avec des médecins de haut niveau. D’autres spécialités sont également disponibles selon vos besoins.
             </AutoTranslate>
 
             <AutoTranslate as="p" className="text-lg text-gray-700 leading-relaxed mb-6">
-              Notre équipe prend en charge chaque patient de A à Z : accueil à l'aéroport, transfert, hospitalisation, hébergement, suivi post-opératoire et accompagnement personnalisé à chaque étape.
-              <span className="block mt-2 font-semibold text-[#cfb654] text-xl">Votre santé et votre bien-être sont notre priorité absolue.</span>
+              Notre équipe prend en charge chaque patient de A à Z : accueil à l'aéroport, transfert, hospitalisation, hébergement, suivi post-opératoire et accompagnement personnalisé à chaque étape. Votre santé et votre bien-être sont notre priorité absolue.
             </AutoTranslate>
           </div>
           {/* Closing Statement */}

@@ -8,6 +8,7 @@ export default function Navbar() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isGuideOpen, setIsGuideOpen] = useState(false);
   const [isInterventionsOpen, setIsInterventionsOpen] = useState(false);
+  const [isTarifsOpen, setIsTarifsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -43,7 +44,7 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center space-x-4">
               <LanguageSwitcher />
               <a
-                href="/Contact"
+                href= "/contact" 
                 className="flex items-center gap-2 bg-gradient-to-r from-[#cfb654] to-[#b8a047] text-[#05125d] px-5 py-2.5 rounded-full font-bold text-sm hover:shadow-lg hover:shadow-[#cfb654]/50 transition-all duration-300 transform hover:scale-105"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -139,10 +140,43 @@ export default function Navbar() {
                   </div>
                 )}
               </div>
-
-              <Link to="/pricing" className="px-4 py-2 text-sm font-semibold text-white hover:text-[#cfb654] hover:bg-white/5 rounded-lg transition-all">
-                <AutoTranslate>Tarifs</AutoTranslate>
-              </Link>
+              <div 
+                className="relative"
+                onMouseEnter={() => setIsTarifsOpen(true)}
+                onMouseLeave={() => setIsTarifsOpen(false)}
+              >
+                <button className="px-4 py-2 text-sm font-semibold text-white hover:text-[#cfb654] hover:bg-white/5 rounded-lg transition-all flex items-center gap-1">
+                  <AutoTranslate>Tarifs</AutoTranslate>
+                  <svg className={`w-4 h-4 transition-transform ${isTarifsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {isTarifsOpen && (
+                  <div className="absolute left-0 right-0 top-full h-2" />
+                )}
+                {isTarifsOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 max-h-96 overflow-y-auto">
+                    <Link to="/pricing#chirurgie-visage" className="block px-4 py-2.5 text-sm text-[#05125d] hover:bg-[#cfb654]/10 font-medium" onClick={() => setIsTarifsOpen(false)}>
+                      <AutoTranslate>Chirurgie du Visage</AutoTranslate>
+                    </Link>
+                    <Link to="/pricing#chirurgie-seins" className="block px-4 py-2.5 text-sm text-[#05125d] hover:bg-[#cfb654]/10 font-medium" onClick={() => setIsTarifsOpen(false)}>
+                      <AutoTranslate>Chirurgie Esthétique des Seins</AutoTranslate>
+                    </Link>
+                    <Link to="/pricing#corps-silhouette" className="block px-4 py-2.5 text-sm text-[#05125d] hover:bg-[#cfb654]/10 font-medium" onClick={() => setIsTarifsOpen(false)}>
+                      <AutoTranslate>Corps et Silhouette</AutoTranslate>
+                    </Link>
+                    <Link to="/pricing#liposuccion" className="block px-4 py-2.5 text-sm text-[#05125d] hover:bg-[#cfb654]/10 font-medium" onClick={() => setIsTarifsOpen(false)}>
+                      <AutoTranslate>Liposuccion</AutoTranslate>
+                    </Link>
+                    <Link to="/pricing#interventions-combinees" className="block px-4 py-2.5 text-sm text-[#05125d] hover:bg-[#cfb654]/10 font-medium" onClick={() => setIsTarifsOpen(false)}>
+                      <AutoTranslate>Interventions Combinées</AutoTranslate>
+                    </Link>
+                    <Link to="/pricing#tarifs-hommes" className="block px-4 py-2.5 text-sm text-[#05125d] hover:bg-[#cfb654]/10 font-medium" onClick={() => setIsTarifsOpen(false)}>
+                      <AutoTranslate>Tarifs Hommes</AutoTranslate>
+                    </Link>
+                  </div>
+                )}
+              </div>
               
               <Link to="/contact" className="px-4 py-2 text-sm font-semibold text-white hover:text-[#cfb654] hover:bg-white/5 rounded-lg transition-all">
                 <AutoTranslate>Contact</AutoTranslate>
@@ -252,14 +286,39 @@ export default function Navbar() {
                   </div>
                 )}
               </div>
-
-              <Link 
-                to="/pricing" 
-                onClick={() => setIsMobileOpen(false)}
-                className="block px-4 py-3 text-white rounded-lg font-semibold hover:bg-white/5 transition"
-              >
-                <AutoTranslate>Tarifs</AutoTranslate>
-              </Link>
+              <div>
+                <button
+                  onClick={() => setIsTarifsOpen(!isTarifsOpen)}
+                  className="w-full flex items-center justify-between px-4 py-3 text-white rounded-lg font-semibold hover:bg-white/5 transition"
+                >
+                  <AutoTranslate>Tarifs</AutoTranslate>
+                  <svg className={`w-5 h-5 transition-transform ${isTarifsOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {isTarifsOpen && (
+                  <div className="mt-2 ml-4 space-y-1">
+                    <Link to="/pricing#chirurgie-visage" onClick={() => setIsMobileOpen(false)} className="block px-4 py-2 text-sm text-[#cfb654] hover:bg-white/5 rounded">
+                      <AutoTranslate>Chirurgie du Visage</AutoTranslate>
+                    </Link>
+                    <Link to="/pricing#chirurgie-seins" onClick={() => setIsMobileOpen(false)} className="block px-4 py-2 text-sm text-[#cfb654] hover:bg-white/5 rounded">
+                      <AutoTranslate>Chirurgie Esthétique des Seins</AutoTranslate>
+                    </Link>
+                    <Link to="/pricing#corps-silhouette" onClick={() => setIsMobileOpen(false)} className="block px-4 py-2 text-sm text-[#cfb654] hover:bg-white/5 rounded">
+                      <AutoTranslate>Corps et Silhouette</AutoTranslate>
+                    </Link>
+                    <Link to="/pricing#liposuccion" onClick={() => setIsMobileOpen(false)} className="block px-4 py-2 text-sm text-[#cfb654] hover:bg-white/5 rounded">
+                      <AutoTranslate>Liposuccion</AutoTranslate>
+                    </Link>
+                    <Link to="/pricing#interventions-combinees" onClick={() => setIsMobileOpen(false)} className="block px-4 py-2 text-sm text-[#cfb654] hover:bg-white/5 rounded">
+                      <AutoTranslate>Interventions Combinées</AutoTranslate>
+                    </Link>
+                    <Link to="/pricing#tarifs-hommes" onClick={() => setIsMobileOpen(false)} className="block px-4 py-2 text-sm text-[#cfb654] hover:bg-white/5 rounded">
+                      <AutoTranslate>Tarifs Hommes</AutoTranslate>
+                    </Link>
+                  </div>
+                )}
+              </div>
 
               <Link 
                 to="/contact" 

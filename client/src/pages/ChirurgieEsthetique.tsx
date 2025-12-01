@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import AutoTranslate from "../components/AutoTranslate";
 
 export default function ChirurgieEsthetique() {
   return (
@@ -9,26 +10,32 @@ export default function ChirurgieEsthetique() {
       {/* Hero / Intro */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#05125d] text-center mb-6" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+          <AutoTranslate
+            as="h1"
+            className="text-3xl md:text-4xl font-bold text-[#05125d] text-center mb-6"
+            style={{ fontFamily: "'Montserrat', sans-serif" }}
+          >
             CHIRURGIE ESTHÉTIQUE EN TUNISIE AVEC Elite Care Travel : VISAGE, SEINS ET SILHOUETTE
-          </h1>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            Découvrez ci-dessous les différentes <strong>chirurgies esthétiques</strong> prises en charge par votre
-            agence de tourisme médical en Tunisie pour <strong>chirurgies plastiques et réparatrices</strong> : Elite Care Travel.
-          </p>
-          <p className="text-gray-700 leading-relaxed mb-8">
-            Merci de nous contacter directement par téléphone ou via le <strong>formulaire en ligne</strong> pour toute
-            demande de complément d’information.
-          </p>
+          </AutoTranslate>
+          <AutoTranslate as="p" className="text-gray-700 leading-relaxed mb-4">
+            Découvrez ci-dessous les différentes chirurgies esthétiques prises en charge par votre agence de tourisme médical en Tunisie pour chirurgies plastiques et réparatrices : Elite Care Travel.
+          </AutoTranslate>
+          <AutoTranslate as="p" className="text-gray-700 leading-relaxed mb-8">
+            Merci de nous contacter directement par téléphone ou via le formulaire en ligne pour toute demande de complément d’information.
+          </AutoTranslate>
         </div>
       </section>
 
       {/* Visage */}
       <section className="py-14">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-semibold text-center text-[#05125d] mb-10" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+          <AutoTranslate
+            as="h2"
+            className="text-2xl md:text-3xl font-semibold text-center text-[#05125d] mb-10"
+            style={{ fontFamily: "'Montserrat', sans-serif" }}
+          >
             CHIRURGIE ESTHÉTIQUE DU VISAGE
-          </h2>
+          </AutoTranslate>
 
           {/* Lifting Visage */}
           <div className="mb-12 text-center">
@@ -37,11 +44,12 @@ export default function ChirurgieEsthetique() {
               alt="Lifting visage"
               className="mx-auto w-72 h-48 object-cover rounded"
             />
-            <h3 className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">LIFTING VISAGE</h3>
-            <p className="mt-3 text-gray-700 leading-relaxed">
-              Technique de rajeunissement du visage, le <strong>lifting du visage</strong> permet de corriger le
-              relâchement de la peau et des muscles du visage et du cou.
-            </p>
+            <AutoTranslate as="h3" className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">
+              LIFTING VISAGE
+            </AutoTranslate>
+            <AutoTranslate as="p" className="mt-3 text-gray-700 leading-relaxed">
+              Technique de rajeunissement du visage, le lifting du visage permet de corriger le relâchement de la peau et des muscles du visage et du cou.
+            </AutoTranslate>
           </div>
 
           {/* Blépharoplastie */}
@@ -51,11 +59,12 @@ export default function ChirurgieEsthetique() {
               alt="Blépharoplastie"
               className="mx-auto w-72 h-48 object-cover rounded"
             />
-            <h3 className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">BLÉPHAROPLASTIE</h3>
-            <p className="mt-3 text-gray-700 leading-relaxed">
-              Traitant les 2 paupières inférieures ou supérieures, la <strong>blépharoplastie</strong> supprime les
-              excès cutanés et musculaires ainsi que les <strong>masses graisseuses</strong> des paupières.
-            </p>
+            <AutoTranslate as="h3" className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">
+              BLÉPHAROPLASTIE
+            </AutoTranslate>
+            <AutoTranslate as="p" className="mt-3 text-gray-700 leading-relaxed">
+              Traitant les 2 paupières inférieures ou supérieures, la blépharoplastie supprime les excès cutanés et musculaires ainsi que les masses graisseuses des paupières.
+            </AutoTranslate>
           </div>
 
           {/* Rhinoplastie */}
@@ -65,11 +74,12 @@ export default function ChirurgieEsthetique() {
               alt="Rhinoplastie"
               className="mx-auto w-72 h-48 object-cover rounded"
             />
-            <h3 className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">RHINOPLASTIE</h3>
-            <p className="mt-3 text-gray-700 leading-relaxed">
-              La <strong>rhinoplastie</strong> est une intervention esthétique pratiquée en ayant pour but de modifier la
-              <strong> morphologie du nez</strong> et de mettre fin aux difficultés respiratoires liées à certaines anomalies.
-            </p>
+            <AutoTranslate as="h3" className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">
+              RHINOPLASTIE
+            </AutoTranslate>
+            <AutoTranslate as="p" className="mt-3 text-gray-700 leading-relaxed">
+              La rhinoplastie est une intervention esthétique pratiquée en ayant pour but de modifier la morphologie du nez et de mettre fin aux difficultés respiratoires liées à certaines anomalies.
+            </AutoTranslate>
           </div>
         </div>
       </section>
@@ -77,9 +87,13 @@ export default function ChirurgieEsthetique() {
       {/* Seins */}
       <section className="py-14 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-semibold text-center text-[#05125d] mb-10" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+          <AutoTranslate
+            as="h2"
+            className="text-2xl md:text-3xl font-semibold text-center text-[#05125d] mb-10"
+            style={{ fontFamily: "'Montserrat', sans-serif" }}
+          >
             CHIRURGIE ESTHÉTIQUE DES SEINS
-          </h2>
+          </AutoTranslate>
 
           {/* Augmentation mammaire */}
           <div className="mb-12 text-center">
@@ -88,11 +102,12 @@ export default function ChirurgieEsthetique() {
               alt="Augmentation mammaire"
               className="mx-auto w-72 h-48 object-cover rounded"
             />
-            <h3 className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">AUGMENTATION MAMMAIRE</h3>
-            <p className="mt-3 text-gray-700 leading-relaxed">
-              L’<strong>augmentation mammaire</strong> est l’intervention de chirurgie esthétique ou réparatrice visant
-              l’augmentation du volume des seins.
-            </p>
+            <AutoTranslate as="h3" className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">
+              AUGMENTATION MAMMAIRE
+            </AutoTranslate>
+            <AutoTranslate as="p" className="mt-3 text-gray-700 leading-relaxed">
+              L’augmentation mammaire est l’intervention de chirurgie esthétique ou réparatrice visant l’augmentation du volume des seins.
+            </AutoTranslate>
           </div>
 
           {/* Lifting mammaire */}
@@ -102,11 +117,12 @@ export default function ChirurgieEsthetique() {
               alt="Lifting mammaire"
               className="mx-auto w-72 h-48 object-cover rounded"
             />
-            <h3 className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">LIFTING MAMMAIRE</h3>
-            <p className="mt-3 text-gray-700 leading-relaxed">
-              Le <strong>lifting mammaire</strong> est l’intervention visant à corriger l’affaissement de la poitrine et
-              la distension de la peau qui l’enveloppe.
-            </p>
+            <AutoTranslate as="h3" className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">
+              LIFTING MAMMAIRE
+            </AutoTranslate>
+            <AutoTranslate as="p" className="mt-3 text-gray-700 leading-relaxed">
+              Le lifting mammaire est l’intervention visant à corriger l’affaissement de la poitrine et la distension de la peau qui l’enveloppe.
+            </AutoTranslate>
           </div>
 
           {/* Réduction mammaire */}
@@ -116,11 +132,12 @@ export default function ChirurgieEsthetique() {
               alt="Réduction mammaire"
               className="mx-auto w-72 h-48 object-cover rounded"
             />
-            <h3 className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">RÉDUCTION MAMMAIRE</h3>
-            <p className="mt-3 text-gray-700 leading-relaxed">
-              La <strong>réduction des seins</strong> est l’intervention visant à corriger l’<strong>hypertrophie
-              mammaire</strong> afin d’obtenir un volume harmonieux et confortable.
-            </p>
+            <AutoTranslate as="h3" className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">
+              RÉDUCTION MAMMAIRE
+            </AutoTranslate>
+            <AutoTranslate as="p" className="mt-3 text-gray-700 leading-relaxed">
+              La réduction des seins est l’intervention visant à corriger l’hypertrophie mammaire afin d’obtenir un volume harmonieux et confortable.
+            </AutoTranslate>
           </div>
 
           {/* Gynécomastie */}
@@ -130,11 +147,12 @@ export default function ChirurgieEsthetique() {
               alt="Gynécomastie"
               className="mx-auto w-72 h-48 object-cover rounded"
             />
-            <h3 className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">GYNÉCOMASTIE</h3>
-            <p className="mt-3 text-gray-700 leading-relaxed">
-              L’opération <strong>gynécoplastie</strong> chez l’homme est une technique chirurgicale esthétique visant la
-              réduction de la glande mammaire.
-            </p>
+            <AutoTranslate as="h3" className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">
+              GYNÉCOMASTIE
+            </AutoTranslate>
+            <AutoTranslate as="p" className="mt-3 text-gray-700 leading-relaxed">
+              L’opération gynécoplastie chez l’homme est une technique chirurgicale esthétique visant la réduction de la glande mammaire.
+            </AutoTranslate>
           </div>
         </div>
       </section>
@@ -142,9 +160,13 @@ export default function ChirurgieEsthetique() {
       {/* Silhouette */}
       <section className="py-14">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-semibold text-center text-[#05125d] mb-10" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+          <AutoTranslate
+            as="h2"
+            className="text-2xl md:text-3xl font-semibold text-center text-[#05125d] mb-10"
+            style={{ fontFamily: "'Montserrat', sans-serif" }}
+          >
             CHIRURGIE ESTHÉTIQUE DE LA SILHOUETTE
-          </h2>
+          </AutoTranslate>
 
           {/* Liposuccion */}
           <div className="mb-12 text-center">
@@ -153,11 +175,12 @@ export default function ChirurgieEsthetique() {
               alt="Liposuccion"
               className="mx-auto w-72 h-48 object-cover rounded"
             />
-            <h3 className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">LIPOSUCCION</h3>
-            <p className="mt-3 text-gray-700 leading-relaxed">
-              La <strong>liposuccion</strong> consiste à supprimer les surcharges graisseuses localisées grâce à
-              l’aspiration, pour redessiner harmonieusement la silhouette.
-            </p>
+            <AutoTranslate as="h3" className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">
+              LIPOSUCCION
+            </AutoTranslate>
+            <AutoTranslate as="p" className="mt-3 text-gray-700 leading-relaxed">
+              La liposuccion consiste à supprimer les surcharges graisseuses localisées grâce à l’aspiration, pour redessiner harmonieusement la silhouette.
+            </AutoTranslate>
           </div>
 
           {/* Abdominoplastie */}
@@ -167,11 +190,12 @@ export default function ChirurgieEsthetique() {
               alt="Abdominoplastie"
               className="mx-auto w-72 h-48 object-cover rounded"
             />
-            <h3 className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">ABDOMINOPLASTIE</h3>
-            <p className="mt-3 text-gray-700 leading-relaxed">
-              Intervention réparatrice du ventre visant à traiter la surcharge graisseuse, le relâchement cutané et à
-              raffermir la paroi musculaire.
-            </p>
+            <AutoTranslate as="h3" className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">
+              ABDOMINOPLASTIE
+            </AutoTranslate>
+            <AutoTranslate as="p" className="mt-3 text-gray-700 leading-relaxed">
+              Intervention réparatrice du ventre visant à traiter la surcharge graisseuse, le relâchement cutané et à raffermir la paroi musculaire.
+            </AutoTranslate>
           </div>
 
           {/* Augmentation des fesses */}
@@ -181,10 +205,12 @@ export default function ChirurgieEsthetique() {
               alt="Augmentation des fesses"
               className="mx-auto w-72 h-48 object-cover rounded"
             />
-            <h3 className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">AUGMENTATION DES FESSES</h3>
-            <p className="mt-3 text-gray-700 leading-relaxed">
+            <AutoTranslate as="h3" className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">
+              AUGMENTATION DES FESSES
+            </AutoTranslate>
+            <AutoTranslate as="p" className="mt-3 text-gray-700 leading-relaxed">
               Réalisée par implants fessiers ou lipofilling, elle augmente le volume et améliore la forme des fesses.
-            </p>
+            </AutoTranslate>
           </div>
 
           {/* Lifting des cuisses/bras */}
@@ -194,11 +220,12 @@ export default function ChirurgieEsthetique() {
               alt="Lifting des cuisses et des bras"
               className="mx-auto w-72 h-48 object-cover rounded"
             />
-            <h3 className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">LIFTING DES CUISSES/BRAS</h3>
-            <p className="mt-3 text-gray-700 leading-relaxed">
-              Comme son nom l’indique, le <strong>lifting des bras et des cuisses</strong> supprime le relâchement de la
-              peau et améliore le galbe des membres.
-            </p>
+            <AutoTranslate as="h3" className="mt-4 text-lg tracking-wide text-gray-700 font-semibold">
+              LIFTING DES CUISSES/BRAS
+            </AutoTranslate>
+            <AutoTranslate as="p" className="mt-3 text-gray-700 leading-relaxed">
+              Comme son nom l’indique, le lifting des bras et des cuisses supprime le relâchement de la peau et améliore le galbe des membres.
+            </AutoTranslate>
           </div>
         </div>
       </section>
